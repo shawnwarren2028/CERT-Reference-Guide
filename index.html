@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script src="theme.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wallingford CERT — Reference Guide</title>
+<meta name="description" content="A searchable CERT glossary and the full FEMA CERT Basic Training course library, Sections 1 to 8.">
+<meta name="theme-color" content="#5aaa3a">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Wallingford CERT Reference Guide">
+<meta property="og:title" content="Wallingford CERT — Reference Guide">
+<meta property="og:description" content="A searchable CERT glossary and the full FEMA CERT Basic Training course library, Sections 1 to 8.">
+<meta property="og:image" content="icon-512.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Wallingford CERT — Reference Guide">
+<meta name="twitter:description" content="A searchable CERT glossary and the full FEMA CERT Basic Training course library, Sections 1 to 8.">
+
+<style>
+  :root {
+    --bg:#0e1208; --surface:#1a2012; --surface2:#243018; --border:#3a5228;
+    --primary:#5aaa3a; --primary-dark:#4a8f2e; --primary-light:#7ac95a;
+    --text:#eef2e8; --text-muted:#8aa87a; --radius:12px; --danger:#ef4444; --gold:#e8c33a;
+  }
+  [data-theme="light"]{
+    --bg:#eef3e7; --surface:#ffffff; --surface2:#e7eedd; --border:#c2d2af;
+    --primary:#41902e; --primary-dark:#317022; --primary-light:#5aaa3a;
+    --text:#16210d; --text-muted:#5c6e4a; --muted:#5c6e4a;
+  }
+  [data-theme="light"] header{background:#e3ecd6;}
+  [data-theme="light"] footer{background:#e3ecd6;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--text);
+    min-height:100vh;display:flex;flex-direction:column;}
+
+  header{width:100%;background:#111a09;border-bottom:3px solid var(--primary);
+    padding:12px 28px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
+  .hdr-actions{margin-left:auto;display:flex;align-items:center;gap:10px;}
+  .hdr-text{flex:1 1 0;min-width:0;}
+  .logo-wrap{display:flex;align-items:center;}
+  #cert-logo{height:48px;width:auto;}
+  .logo-badge{background:var(--primary);color:#000;font-weight:900;font-size:1.1rem;
+    letter-spacing:.1em;padding:6px 12px;border-radius:6px;}
+  header h1{font-size:1.2rem;font-weight:700;color:var(--primary);}
+  header p{font-size:0.8rem;color:var(--text-muted);}
+
+  main{flex:1;width:100%;max-width:1080px;margin:0 auto;padding:40px 24px 28px;
+    display:flex;flex-direction:column;}
+
+  .hero{text-align:center;margin-bottom:38px;}
+  .hero .eyebrow{font-size:0.78rem;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--primary-light);font-weight:700;margin-bottom:10px;}
+  .hero h2{font-size:2.3rem;font-weight:800;line-height:1.15;margin-bottom:14px;}
+  .hero h2 span{color:var(--primary);}
+  .hero p{font-size:1rem;color:var(--text-muted);max-width:620px;margin:0 auto;line-height:1.6;}
+
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;}
+  .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+    padding:26px 24px 22px;text-decoration:none;color:inherit;display:flex;flex-direction:column;
+    transition:transform .18s,border-color .18s,box-shadow .18s;position:relative;overflow:hidden;}
+  .card:hover{transform:translateY(-4px);border-color:var(--primary);
+    box-shadow:0 12px 28px rgba(0,0,0,.45);}
+  .card-icon{font-size:2.6rem;line-height:1;margin-bottom:16px;}
+  .card-kicker{font-size:0.72rem;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--text-muted);font-weight:700;margin-bottom:6px;}
+  .card h3{font-size:1.32rem;font-weight:700;color:var(--primary);margin-bottom:10px;}
+  .card p{font-size:0.88rem;color:var(--text);opacity:.85;line-height:1.55;flex:1;margin-bottom:18px;}
+  .card .cta{display:inline-flex;align-items:center;gap:7px;font-size:0.85rem;font-weight:700;
+    color:var(--primary-light);}
+  .card .cta::after{content:'→';transition:transform .18s;}
+  .card:hover .cta::after{transform:translateX(4px);}
+  .card .tag{position:absolute;top:16px;right:16px;font-size:0.66rem;font-weight:700;
+    color:var(--text-muted);border:1px solid var(--border);border-radius:20px;padding:3px 10px;}
+
+  footer{text-align:center;padding:20px;color:var(--text-muted);font-size:0.76rem;
+    border-top:1px solid var(--border);margin-top:38px;}
+  footer span{color:var(--primary);}
+
+  @media (max-width:600px){
+    header{padding:10px 16px;gap:12px;}
+    header h1{font-size:1rem;}
+    header p{font-size:0.72rem;}
+    .hdr-actions{margin-left:0;width:100%;justify-content:center;}
+    #cert-logo{height:40px;}
+    main{padding:26px 16px 18px;}
+    .hero{margin-bottom:26px;}
+    .hero h2{font-size:1.7rem;}
+    .hero p{font-size:0.92rem;}
+    .cards{gap:14px;}
+    .card{padding:22px 18px 18px;}
+    .card-icon{font-size:2.2rem;margin-bottom:12px;}
+    .card h3{font-size:1.18rem;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo-wrap">
+    <img id="cert-logo" src="cert-wallingford-logo.png" alt="CERT Wallingford"
+      onerror="this.style.display='none';document.getElementById('logo-fallback').style.display='flex'">
+    <div id="logo-fallback" style="display:none;align-items:center;gap:10px;">
+      <div class="logo-badge">CERT</div>
+    </div>
+  </div>
+  <div class="hdr-text">
+    <h1>Wallingford CERT — Reference Guide</h1>
+    <p>Community Emergency Response Team</p>
+  </div>
+  <div class="hdr-actions">
+    <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle light or dark mode">☀️</button>
+  </div>
+</header>
+
+<main>
+  <div class="hero">
+    <div class="eyebrow">Basic Training · Sections 1–8</div>
+    <h2>Look up your <span>CERT</span> reference material.</h2>
+    <p>Search the glossary for a term, or browse the official course materials
+       for any of the eight training sections.</p>
+  </div>
+
+  <div class="cards">
+
+    <a class="card" href="glossary.html">
+      <span class="tag">80 terms</span>
+      <span class="card-icon">📖</span>
+      <span class="card-kicker">Study</span>
+      <h3>CERT Glossary</h3>
+      <p>A searchable reference of every key CERT term, grouped by section with definitions
+         and quick study notes — and a link to the matching course material for each.</p>
+      <span class="cta">Open glossary</span>
+    </a>
+
+    <a class="card" href="reference.html">
+      <span class="tag">8 sections</span>
+      <span class="card-icon">📄</span>
+      <span class="card-kicker">Reference</span>
+      <h3>Course Materials</h3>
+      <p>Browse the official CERT Basic Training presentations for Sections 1–8 —
+         disaster prep, fire safety, medical ops, search &amp; rescue, and more.</p>
+      <span class="cta">Open library</span>
+    </a>
+
+  </div>
+</main>
+
+<footer>
+  <span>Wallingford CERT</span> — Reference Guide · For educational use — follow your local CERT program guidelines.
+</footer>
+
+</body>
+</html>
