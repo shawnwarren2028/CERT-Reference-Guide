@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script src="theme.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wallingford CERT — Transcript</title>
+<meta name="description" content="Text transcript of the FEMA CERT Basic Training course decks — read slide-by-slide content, searchable and screen-reader friendly.">
+<meta name="theme-color" content="#5aaa3a">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Wallingford CERT Reference Guide">
+<meta property="og:title" content="Wallingford CERT — Transcript">
+<meta property="og:description" content="Text transcript of the FEMA CERT Basic Training course decks — read slide-by-slide content, searchable and screen-reader friendly.">
+<meta property="og:image" content="icon-512.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Wallingford CERT — Transcript">
+<meta name="twitter:description" content="Text transcript of the FEMA CERT Basic Training course decks — read slide-by-slide content, searchable and screen-reader friendly.">
+<style>
+  :root{
+    --bg:#0e1208; --surface:#1a2012; --surface2:#243018; --border:#3a5228;
+    --primary:#5aaa3a; --primary-dark:#4a8f2e; --primary-light:#7ac95a;
+    --text:#eef2e8; --text-muted:#8aa87a; --radius:12px; --gold:#e8c33a;
+  }
+  [data-theme="light"]{
+    --bg:#eef3e7; --surface:#ffffff; --surface2:#e7eedd; --border:#c2d2af;
+    --primary:#41902e; --primary-dark:#317022; --primary-light:#5aaa3a;
+    --text:#16210d; --text-muted:#5c6e4a; --muted:#5c6e4a;
+  }
+  [data-theme="light"] header{background:#e3ecd6;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--text);
+    min-height:100vh;display:flex;flex-direction:column;}
+
+  header{width:100%;background:#111a09;border-bottom:3px solid var(--primary);
+    padding:12px 28px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
+  #cert-logo{height:48px;width:auto;}
+  .logo-badge{background:var(--primary);color:#000;font-weight:900;font-size:1.05rem;
+    letter-spacing:.1em;padding:6px 12px;border-radius:6px;}
+  header h1{font-size:1.15rem;font-weight:700;color:var(--primary);}
+  header p{font-size:0.78rem;color:var(--text-muted);}
+  .hdr-text{flex:1 1 0;min-width:0;}
+  .hdr-actions{margin-left:auto;display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+  .home-link{color:var(--primary-light);text-decoration:none;font-size:0.85rem;
+    font-weight:600;border:1px solid var(--border);padding:8px 15px;border-radius:8px;
+    transition:.15s;white-space:nowrap;}
+  .home-link:hover{background:var(--surface2);border-color:var(--primary);}
+  @media (max-width:600px){ header{flex-wrap:wrap;} .hdr-actions{margin-left:0;width:100%;justify-content:center;} }
+
+  .toolbar{display:flex;align-items:center;gap:10px;padding:12px 18px;background:var(--surface);
+    border-bottom:1px solid var(--border);flex-wrap:wrap;position:sticky;top:0;z-index:5;}
+  .tb-title{font-weight:700;color:var(--primary);font-size:1rem;min-width:0;}
+  .tb-sub{font-size:0.74rem;color:var(--text-muted);}
+  .tb-spacer{flex:1 1 auto;}
+  .tb-btn{display:inline-flex;align-items:center;gap:6px;background:var(--surface2);
+    border:1px solid var(--border);color:var(--text);text-decoration:none;font-size:0.82rem;
+    font-weight:600;padding:8px 13px;border-radius:8px;cursor:pointer;transition:.15s;white-space:nowrap;}
+  .tb-btn:hover:not(:disabled){border-color:var(--primary);background:var(--border);}
+  .tb-btn:disabled{opacity:.4;cursor:default;}
+  .tb-btn.primary{color:var(--primary-light);}
+
+  main{flex:1;width:100%;max-width:820px;margin:0 auto;padding:24px 20px 48px;}
+  .tr-note{font-size:0.82rem;color:var(--text-muted);background:var(--surface);border:1px solid var(--border);
+    border-radius:10px;padding:12px 15px;margin-bottom:22px;line-height:1.5;}
+
+  .tr-slide{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+    padding:16px 18px;margin-bottom:14px;scroll-margin-top:76px;}
+  .tr-slide.flash{animation:trflash 1.6s ease;}
+  @keyframes trflash{0%{border-color:var(--gold);box-shadow:0 0 0 3px rgba(232,195,58,.28);}100%{border-color:var(--border);box-shadow:none;}}
+  .tr-slide-head{display:flex;align-items:center;gap:10px;margin-bottom:8px;}
+  .tr-num{font-size:0.7rem;font-weight:700;color:var(--text-muted);background:var(--surface2);
+    border:1px solid var(--border);border-radius:20px;padding:3px 10px;white-space:nowrap;}
+  .tr-view{margin-left:auto;font-size:0.76rem;color:var(--primary-light);text-decoration:none;
+    white-space:nowrap;}
+  .tr-view:hover{text-decoration:underline;}
+  .tr-text{font-size:0.92rem;line-height:1.6;white-space:pre-line;}
+
+  footer{text-align:center;padding:20px;color:var(--text-muted);font-size:0.76rem;
+    border-top:1px solid var(--border);}
+  footer a{color:var(--primary-light);}
+
+  @media (max-width:600px){
+    header{padding:10px 16px;}
+    .toolbar{padding:9px 12px;}
+    main{padding:18px 14px 36px;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <img id="cert-logo" src="cert-wallingford-logo.png" alt="Wallingford CERT"
+    onerror="this.style.display='none';document.getElementById('logo-fallback').style.display='flex'">
+  <div id="logo-fallback" style="display:none;align-items:center;"><div class="logo-badge">CERT</div></div>
+  <div class="hdr-text">
+    <h1>Wallingford CERT — Transcript</h1>
+    <p>Community Emergency Response Team</p>
+  </div>
+  <div class="hdr-actions">
+    <a class="home-link" href="search.html">🔍 Search</a>
+    <a class="home-link" href="reference.html">← Materials</a>
+    <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle light or dark mode">☀️</button>
+  </div>
+</header>
+
+<div class="toolbar">
+  <button class="tb-btn" id="prev-btn" title="Previous section">‹ Prev</button>
+  <div>
+    <div class="tb-title" id="sec-title">Loading…</div>
+    <div class="tb-sub" id="sec-sub"></div>
+  </div>
+  <button class="tb-btn" id="next-btn" title="Next section">Next ›</button>
+  <div class="tb-spacer"></div>
+  <a class="tb-btn primary" id="view-slides">🖼 View slides</a>
+</div>
+
+<main>
+  <div class="tr-note">
+    Auto-generated text transcript of this section's slides — useful for search, screen readers,
+    and quick skimming. Formatting and slide art aren't captured; use <strong>View slides</strong>
+    or a slide's own <strong>View ↗</strong> link to see the original presentation.
+  </div>
+  <div id="slides"></div>
+</main>
+
+<footer>
+  <span style="color:var(--primary)">Wallingford CERT</span> — Reference Guide · Transcript ·
+  <a href="changelog.html">Changelog</a>
+</footer>
+
+<script src="reference-sections.js"></script>
+<script>
+const params = new URLSearchParams(location.search);
+const docBase = params.get('doc');
+const idx = REF_SECTIONS.findIndex(s => s.base === docBase);
+const secRef = idx >= 0 ? REF_SECTIONS[idx] : null;
+const $ = id => document.getElementById(id);
+
+function esc(s){ return s.replace(/[&<>]/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c])); }
+
+async function init(){
+  if (!secRef){
+    $('sec-title').textContent = 'Section not found';
+    $('slides').innerHTML = '<div class="tr-note">Pick a section from the Course Materials page.</div>';
+    $('prev-btn').disabled = true; $('next-btn').disabled = true; $('view-slides').style.display='none';
+    return;
+  }
+  document.title = 'Wallingford CERT — ' + secRef.name + ' Transcript';
+  $('sec-title').textContent = secRef.name;
+  $('view-slides').href = 'viewer.html?doc=' + secRef.base;
+
+  const prev = REF_SECTIONS[idx - 1], next = REF_SECTIONS[idx + 1];
+  if (prev) $('prev-btn').onclick = () => location.href = 'transcript.html?doc=' + prev.base;
+  else $('prev-btn').disabled = true;
+  if (next) $('next-btn').onclick = () => location.href = 'transcript.html?doc=' + next.base;
+  else $('next-btn').disabled = true;
+
+  let data;
+  try{
+    const r = await fetch('data/deck-text.json');
+    data = await r.json();
+  }catch(e){
+    $('slides').innerHTML = '<div class="tr-note">Couldn\'t load the transcript data. Try reloading the page.</div>';
+    return;
+  }
+  const sec = data.sections.find(s => s.base === secRef.base);
+  if (!sec){
+    $('slides').innerHTML = '<div class="tr-note">No transcript data for this section yet.</div>';
+    return;
+  }
+  $('sec-sub').textContent = 'Section ' + secRef.n + ' of ' + REF_SECTIONS.length + ' · ' + sec.pageCount + ' slides';
+
+  $('slides').innerHTML = sec.pages.map(p => `
+    <section class="tr-slide" id="slide-${p.n}">
+      <div class="tr-slide-head">
+        <span class="tr-num">Slide ${p.n} / ${sec.pageCount}</span>
+        <a class="tr-view" href="viewer.html?doc=${sec.base}&slide=${p.n}" target="_blank" rel="noopener">View ↗</a>
+      </div>
+      <div class="tr-text">${esc(p.text || '(No extractable text for this slide — view it above.)')}</div>
+    </section>`).join('');
+
+  // Deep-link support: #slide-N scrolls to and briefly highlights that slide.
+  if (location.hash.startsWith('#slide-')){
+    const target = document.getElementById(location.hash.slice(1));
+    if (target){
+      setTimeout(() => {
+        target.scrollIntoView({behavior:'auto', block:'start'});
+        target.classList.add('flash');
+      }, 60);
+    }
+  }
+}
+init();
+</script>
+</body>
+</html>

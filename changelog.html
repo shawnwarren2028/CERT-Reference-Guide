@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script src="theme.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wallingford CERT — Changelog</title>
+<meta name="description" content="What's new in the CERT Reference Guide, plus source-file dates for each FEMA course section.">
+<meta name="theme-color" content="#5aaa3a">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Wallingford CERT Reference Guide">
+<meta property="og:title" content="Wallingford CERT — Changelog">
+<meta property="og:description" content="What's new in the CERT Reference Guide, plus source-file dates for each FEMA course section.">
+<meta property="og:image" content="icon-512.png">
+<style>
+  :root{
+    --bg:#0e1208; --surface:#1a2012; --surface2:#243018; --border:#3a5228;
+    --primary:#5aaa3a; --primary-dark:#4a8f2e; --primary-light:#7ac95a;
+    --text:#eef2e8; --text-muted:#8aa87a; --radius:12px;
+  }
+  [data-theme="light"]{
+    --bg:#eef3e7; --surface:#ffffff; --surface2:#e7eedd; --border:#c2d2af;
+    --primary:#41902e; --primary-dark:#317022; --primary-light:#5aaa3a;
+    --text:#16210d; --text-muted:#5c6e4a; --muted:#5c6e4a;
+  }
+  [data-theme="light"] header{background:#e3ecd6;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--text);
+    min-height:100vh;display:flex;flex-direction:column;}
+  header{width:100%;background:#111a09;border-bottom:3px solid var(--primary);
+    padding:12px 28px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
+  #cert-logo{height:48px;width:auto;}
+  .logo-badge{background:var(--primary);color:#000;font-weight:900;font-size:1.05rem;
+    letter-spacing:.1em;padding:6px 12px;border-radius:6px;}
+  header h1{font-size:1.15rem;font-weight:700;color:var(--primary);}
+  header p{font-size:0.78rem;color:var(--text-muted);}
+  .hdr-text{flex:1 1 0;min-width:0;}
+  .hdr-actions{margin-left:auto;display:flex;align-items:center;gap:10px;}
+  @media (max-width:600px){ header{flex-wrap:wrap;} .hdr-actions{margin-left:0;width:100%;justify-content:center;} #cert-logo{height:40px;} }
+  .home-link{color:var(--primary-light);text-decoration:none;font-size:0.85rem;
+    font-weight:600;border:1px solid var(--border);padding:8px 15px;border-radius:8px;transition:.15s;white-space:nowrap;}
+  .home-link:hover{background:var(--surface2);border-color:var(--primary);}
+
+  main{flex:1;width:100%;max-width:760px;margin:0 auto;padding:32px 20px 40px;}
+  .page-hero h2{font-size:1.7rem;font-weight:800;margin-bottom:8px;}
+  .page-hero h2 span{color:var(--primary);}
+  .page-hero p{font-size:0.92rem;color:var(--text-muted);line-height:1.55;max-width:640px;margin-bottom:8px;}
+
+  h3.cl-h{font-size:1.05rem;color:var(--primary);margin:30px 0 12px;padding-bottom:6px;border-bottom:1px solid var(--border);}
+
+  .entry{display:flex;gap:14px;padding:12px 0;border-bottom:1px solid var(--border);}
+  .entry:last-child{border-bottom:none;}
+  .entry-date{flex-shrink:0;width:92px;font-size:0.76rem;color:var(--text-muted);font-weight:700;padding-top:2px;}
+  .entry-body{flex:1;font-size:0.9rem;line-height:1.55;}
+  .entry-body ul{margin:4px 0 0 18px;}
+  .entry-body li{margin-bottom:3px;}
+
+  table.src-table{width:100%;border-collapse:collapse;font-size:0.86rem;}
+  table.src-table th,table.src-table td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--border);}
+  table.src-table th{color:var(--text-muted);font-weight:700;font-size:0.72rem;text-transform:uppercase;letter-spacing:.04em;}
+  table.src-table td.num{white-space:nowrap;color:var(--text-muted);}
+  .src-note{font-size:0.78rem;color:var(--text-muted);margin-top:10px;line-height:1.5;}
+
+  footer{text-align:center;padding:18px;color:var(--text-muted);font-size:0.74rem;border-top:1px solid var(--border);margin-top:20px;}
+</style>
+</head>
+<body>
+
+<header>
+  <img id="cert-logo" src="cert-wallingford-logo.png" alt="Wallingford CERT"
+    onerror="this.style.display='none';document.getElementById('logo-fallback').style.display='flex'">
+  <div id="logo-fallback" style="display:none;align-items:center;"><div class="logo-badge">CERT</div></div>
+  <div class="hdr-text">
+    <h1>Wallingford CERT — Changelog</h1>
+    <p>Community Emergency Response Team</p>
+  </div>
+  <div class="hdr-actions">
+    <a class="home-link" href="search.html">🔍 Search</a>
+    <a class="home-link" href="index.html">← Menu</a>
+    <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle light or dark mode">☀️</button>
+  </div>
+</header>
+
+<main>
+  <div class="page-hero">
+    <h2>📋 <span>Changelog</span></h2>
+    <p>What's changed on this site, and when each course section's source file was last prepared.</p>
+  </div>
+
+  <h3 class="cl-h">Site changes</h3>
+  <div id="site-log">
+    <div class="entry">
+      <div class="entry-date">2026-07-26</div>
+      <div class="entry-body">Added the reference-guide framework:
+        <ul>
+          <li><strong>Search Everything</strong> — one search box across the glossary and all 8 course decks</li>
+          <li><strong>Transcripts</strong> — text transcript of every slide, for skimming and screen readers</li>
+          <li>This changelog</li>
+        </ul>
+      </div>
+    </div>
+    <div class="entry">
+      <div class="entry-date">2026-07-25</div>
+      <div class="entry-body">Split off from the Readiness Arcade project into its own standalone repo, <code>CERT-Reference-Guide</code>.</div>
+    </div>
+  </div>
+
+  <h3 class="cl-h">Course material source dates</h3>
+  <p style="font-size:0.86rem;color:var(--text-muted);margin-bottom:12px;">
+    This is <strong>not</strong> FEMA's official revision date for the curriculum — it's when the
+    508-compliant PDF copy of each section bundled in this guide was generated. Useful for noticing
+    when a section might be due for a refresh from FEMA's source material.
+  </p>
+  <table class="src-table" id="src-table">
+    <thead><tr><th>Section</th><th>Source file prepared</th></tr></thead>
+    <tbody><tr><td colspan="2" style="color:var(--text-muted);">Loading…</td></tr></tbody>
+  </table>
+  <div class="src-note">Regenerated automatically from <code>data/deck-text.json</code> — re-run
+    <code>scripts/extract-decks.py</code> after replacing any section PDF and this table updates itself.</div>
+</main>
+
+<footer><span style="color:var(--primary)">Wallingford CERT</span> — Reference Guide · Changelog</footer>
+
+<script>
+fetch('data/deck-text.json').then(r => r.json()).then(data => {
+  const rows = data.sections.map(s => `
+    <tr>
+      <td>${s.icon} Section ${s.n} — ${s.name}</td>
+      <td class="num">${(s.sourceMeta && s.sourceMeta.creationDate) || '—'}</td>
+    </tr>`).join('');
+  document.querySelector('#src-table tbody').innerHTML = rows;
+}).catch(() => {
+  document.querySelector('#src-table tbody').innerHTML =
+    '<tr><td colspan="2" style="color:var(--text-muted);">Couldn\'t load source-date data.</td></tr>';
+});
+</script>
+</body>
+</html>

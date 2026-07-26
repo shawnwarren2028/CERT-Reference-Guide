@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script src="theme.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wallingford CERT — Search</title>
+<meta name="description" content="Search the CERT glossary and all 8 FEMA CERT Basic Training course decks at once.">
+<meta name="theme-color" content="#5aaa3a">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Wallingford CERT Reference Guide">
+<meta property="og:title" content="Wallingford CERT — Search">
+<meta property="og:description" content="Search the CERT glossary and all 8 FEMA CERT Basic Training course decks at once.">
+<meta property="og:image" content="icon-512.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Wallingford CERT — Search">
+<meta name="twitter:description" content="Search the CERT glossary and all 8 FEMA CERT Basic Training course decks at once.">
+<style>
+  :root{
+    --bg:#0e1208; --surface:#1a2012; --surface2:#243018; --border:#3a5228;
+    --primary:#5aaa3a; --primary-dark:#4a8f2e; --primary-light:#7ac95a;
+    --text:#eef2e8; --text-muted:#8aa87a; --radius:12px; --gold:#e8c33a;
+  }
+  [data-theme="light"]{
+    --bg:#eef3e7; --surface:#ffffff; --surface2:#e7eedd; --border:#c2d2af;
+    --primary:#41902e; --primary-dark:#317022; --primary-light:#5aaa3a;
+    --text:#16210d; --text-muted:#5c6e4a; --muted:#5c6e4a;
+  }
+  [data-theme="light"] header{background:#e3ecd6;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--text);
+    min-height:100vh;display:flex;flex-direction:column;}
+  header{width:100%;background:#111a09;border-bottom:3px solid var(--primary);
+    padding:12px 28px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
+  #cert-logo{height:48px;width:auto;}
+  .logo-badge{background:var(--primary);color:#000;font-weight:900;font-size:1.05rem;
+    letter-spacing:.1em;padding:6px 12px;border-radius:6px;}
+  header h1{font-size:1.15rem;font-weight:700;color:var(--primary);}
+  header p{font-size:0.78rem;color:var(--text-muted);}
+  .hdr-text{flex:1 1 0;min-width:0;}
+  .hdr-actions{margin-left:auto;display:flex;align-items:center;gap:10px;}
+  @media (max-width:600px){ header{flex-wrap:wrap;} .hdr-actions{margin-left:0;width:100%;justify-content:center;} #cert-logo{height:40px;} }
+  .home-link{color:var(--primary-light);text-decoration:none;font-size:0.85rem;
+    font-weight:600;border:1px solid var(--border);padding:8px 15px;border-radius:8px;transition:.15s;white-space:nowrap;}
+  .home-link:hover{background:var(--surface2);border-color:var(--primary);}
+
+  main{flex:1;width:100%;max-width:920px;margin:0 auto;padding:28px 20px 36px;}
+  .s-hero h2{font-size:1.8rem;font-weight:800;margin-bottom:6px;}
+  .s-hero h2 span{color:var(--primary);}
+  .s-hero p{color:var(--text-muted);font-size:0.92rem;line-height:1.5;max-width:640px;}
+
+  .search-row{position:sticky;top:0;background:var(--bg);padding:16px 0 12px;z-index:5;}
+  .search-box{width:100%;display:flex;align-items:center;gap:10px;background:var(--surface);
+    border:1px solid var(--border);border-radius:10px;padding:11px 15px;}
+  .search-box:focus-within{border-color:var(--primary);}
+  .search-box input{flex:1;background:none;border:none;color:var(--text);font-size:1rem;outline:none;}
+  .search-box .si{color:var(--text-muted);font-size:1.1rem;}
+  .count-line{font-size:0.78rem;color:var(--text-muted);margin-top:8px;}
+
+  .hint{text-align:center;color:var(--text-muted);padding:50px 12px;font-size:0.95rem;line-height:1.6;}
+  .hint .hi{font-size:2.2rem;display:block;margin-bottom:12px;}
+  .no-results{text-align:center;color:var(--text-muted);padding:40px 0;font-size:0.95rem;}
+
+  .s-group{margin-top:26px;}
+  .s-group-head{display:flex;align-items:center;gap:9px;margin-bottom:12px;padding-bottom:8px;
+    border-bottom:1px solid var(--border);}
+  .s-group-head .gh-ic{font-size:1.3rem;}
+  .s-group-head .gh-name{font-size:1.05rem;font-weight:700;color:var(--primary);}
+  .s-group-head .gh-count{font-size:0.74rem;color:var(--text-muted);}
+
+  .hit{background:var(--surface);border:1px solid var(--border);border-radius:10px;
+    padding:13px 16px;margin-bottom:10px;}
+  .hit-top{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;}
+  a.hit-title{font-size:1.02rem;font-weight:800;color:var(--gold);letter-spacing:.02em;
+    text-decoration:none;cursor:pointer;}
+  a.hit-title:hover{color:var(--primary-light);text-decoration:underline;}
+  .hit-tag{font-size:0.64rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;
+    padding:2px 8px;border-radius:20px;border:1px solid var(--border);color:var(--text-muted);white-space:nowrap;}
+  .hit-sub{font-size:0.72rem;color:var(--text-muted);margin-top:2px;}
+  .hit-snippet{font-size:0.88rem;color:var(--text);opacity:.9;line-height:1.5;margin-top:7px;}
+  .hit-links{display:flex;gap:14px;margin-top:9px;flex-wrap:wrap;}
+  .hit-links a{font-size:0.78rem;color:var(--primary-light);text-decoration:none;}
+  .hit-links a:hover{text-decoration:underline;}
+  mark{background:rgba(232,195,58,.35);color:var(--text);border-radius:3px;padding:0 1px;}
+  .more-note{text-align:center;font-size:0.8rem;color:var(--text-muted);padding:10px 0 4px;}
+
+  footer{text-align:center;padding:18px;color:var(--text-muted);font-size:0.74rem;border-top:1px solid var(--border);}
+  footer a{color:var(--primary-light);}
+  @media (max-width:600px){ .s-hero h2{font-size:1.45rem;} }
+</style>
+</head>
+<body>
+
+<header>
+  <img id="cert-logo" src="cert-wallingford-logo.png" alt="Wallingford CERT"
+    onerror="this.style.display='none';document.getElementById('logo-fallback').style.display='flex'">
+  <div id="logo-fallback" style="display:none;align-items:center;"><div class="logo-badge">CERT</div></div>
+  <div class="hdr-text">
+    <h1>Wallingford CERT — Search</h1>
+    <p>Community Emergency Response Team</p>
+  </div>
+  <div class="hdr-actions">
+    <a class="home-link" href="index.html">← Menu</a>
+    <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle light or dark mode">☀️</button>
+  </div>
+</header>
+
+<main>
+  <div class="s-hero">
+    <h2>Search <span>Everything</span></h2>
+    <p>One box searches the whole guide — every glossary term and every slide across all 8
+       course sections. Results link straight to the slide or the full glossary entry.</p>
+  </div>
+
+  <div class="search-row">
+    <div class="search-box">
+      <span class="si">🔍</span>
+      <input id="search" type="search" placeholder="Search terms and course material…" autocomplete="off">
+    </div>
+    <div class="count-line" id="count-line"></div>
+  </div>
+
+  <div id="results"></div>
+</main>
+
+<footer>
+  <span style="color:var(--primary)">Wallingford CERT</span> — Reference Guide · Search ·
+  <a href="changelog.html">Changelog</a>
+</footer>
+
+<script src="cert-terms.js"></script>
+<script src="reference-sections.js"></script>
+<script>
+const $ = id => document.getElementById(id);
+const elResults = $('results'), elCount = $('count-line'), elSearch = $('search');
+const MAX_SLIDE_HITS = 40;
+
+function esc(s){ return s.replace(/[&<>]/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c])); }
+function hl(s,q){ if(!q) return esc(s);
+  const i=s.toLowerCase().indexOf(q); if(i<0) return esc(s);
+  return esc(s.slice(0,i))+'<mark>'+esc(s.slice(i,i+q.length))+'</mark>'+esc(s.slice(i+q.length));
+}
+// Trim a slide's multi-line text to a single-line snippet centered on the match.
+function snippet(text, q, radius){
+  const flat = text.replace(/\s+/g, ' ').trim();
+  if (!q) return flat.slice(0, radius*2);
+  const i = flat.toLowerCase().indexOf(q);
+  if (i < 0) return flat.slice(0, radius*2);
+  const start = Math.max(0, i - radius), end = Math.min(flat.length, i + q.length + radius);
+  return (start>0?'…':'') + flat.slice(start, end) + (end<flat.length?'…':'');
+}
+
+let ITEMS = null;
+
+async function buildIndex(){
+  const items = [];
+  CERT_TERMS.forEach(t => {
+    const sec = SECTION_BY[SECTION_OF[t.a]];
+    const deck = sec && sec.ref.endsWith('.pptx') ? sec.ref.replace(/\.pptx$/, '') : null;
+    const slide = (deck && TERM_SLIDE[t.a]) || 1;
+    items.push({
+      type: 'term', term: t.a, clue: t.clue, info: t.info,
+      sectionName: sec ? sec.name : '', sectionIcon: sec ? sec.icon : '📖',
+      viewHref: deck ? `viewer.html?doc=${deck}&slide=${slide}` : null,
+    });
+  });
+  try{
+    const r = await fetch('data/deck-text.json');
+    const data = await r.json();
+    data.sections.forEach(sec => {
+      sec.pages.forEach(p => {
+        if (!p.text) return;
+        items.push({
+          type: 'slide', sectionN: sec.n, sectionName: sec.name, sectionIcon: sec.icon,
+          base: sec.base, page: p.n, pageCount: sec.pageCount, text: p.text,
+        });
+      });
+    });
+  }catch(e){ /* deck text is optional — glossary search still works without it */ }
+  return items;
+}
+
+function render(qRaw){
+  const q = (qRaw||'').trim().toLowerCase();
+  if (!ITEMS || q.length < 2){
+    elResults.innerHTML = q.length===0
+      ? `<div class="hint"><span class="hi">🔎</span>Type at least 2 characters to search
+         ${ITEMS ? `${CERT_TERMS.length} glossary terms and ${ITEMS.length-CERT_TERMS.length} slides across ${REF_SECTIONS.length} sections` : '…'}.</div>`
+      : `<div class="hint"><span class="hi">🔎</span>Keep typing — 2+ characters needed.</div>`;
+    elCount.textContent = '';
+    return;
+  }
+  const termHits = ITEMS.filter(it => it.type==='term' &&
+    (it.term.toLowerCase().includes(q) || it.clue.toLowerCase().includes(q) || it.info.toLowerCase().includes(q)));
+  const slideHitsAll = ITEMS.filter(it => it.type==='slide' && it.text.toLowerCase().includes(q));
+  const slideHits = slideHitsAll.slice(0, MAX_SLIDE_HITS);
+
+  elCount.textContent = `${termHits.length} term${termHits.length===1?'':'s'} · ${slideHitsAll.length} slide${slideHitsAll.length===1?'':'s'} match`;
+
+  if (!termHits.length && !slideHitsAll.length){
+    elResults.innerHTML = `<div class="no-results">No matches for "${esc(qRaw)}". Try a shorter or different word.</div>`;
+    return;
+  }
+
+  let html = '';
+  if (termHits.length){
+    html += `<div class="s-group"><div class="s-group-head">
+      <span class="gh-ic">📖</span><span class="gh-name">Glossary terms</span>
+      <span class="gh-count">${termHits.length}</span></div>`;
+    html += termHits.map(t => `
+      <div class="hit">
+        <div class="hit-top">
+          <a class="hit-title" href="glossary.html">${hl(t.term,q)}</a>
+          <span class="hit-tag">${esc(t.sectionName)}</span>
+        </div>
+        <div class="hit-snippet">${hl(t.clue,q)}</div>
+        <div class="hit-links">
+          <a href="glossary.html">Open in Glossary →</a>
+          ${t.viewHref ? `<a href="${t.viewHref}" target="_blank" rel="noopener">View slide ↗</a>` : ''}
+        </div>
+      </div>`).join('');
+    html += `</div>`;
+  }
+  if (slideHitsAll.length){
+    html += `<div class="s-group"><div class="s-group-head">
+      <span class="gh-ic">📄</span><span class="gh-name">Course material</span>
+      <span class="gh-count">${slideHitsAll.length}</span></div>`;
+    html += slideHits.map(s => `
+      <div class="hit">
+        <div class="hit-top">
+          <a class="hit-title" href="transcript.html?doc=${s.base}#slide-${s.page}">${s.sectionIcon} ${esc(s.sectionName)}</a>
+          <span class="hit-tag">Slide ${s.page} / ${s.pageCount}</span>
+        </div>
+        <div class="hit-snippet">${hl(snippet(s.text, q, 70), q)}</div>
+        <div class="hit-links">
+          <a href="transcript.html?doc=${s.base}#slide-${s.page}">Read transcript →</a>
+          <a href="viewer.html?doc=${s.base}&slide=${s.page}" target="_blank" rel="noopener">View slide ↗</a>
+        </div>
+      </div>`).join('');
+    if (slideHitsAll.length > MAX_SLIDE_HITS)
+      html += `<div class="more-note">Showing first ${MAX_SLIDE_HITS} of ${slideHitsAll.length} matching slides — refine your search to narrow this down.</div>`;
+    html += `</div>`;
+  }
+  elResults.innerHTML = html;
+}
+
+buildIndex().then(items => { ITEMS = items; render(elSearch.value); });
+elSearch.addEventListener('input', () => render(elSearch.value));
+render('');
+
+// Support ?q=term deep links (e.g. from other pages' "search for this" links).
+const initialQ = new URLSearchParams(location.search).get('q');
+if (initialQ){ elSearch.value = initialQ; }
+</script>
+</body>
+</html>

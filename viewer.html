@@ -93,6 +93,7 @@
     <p>Community Emergency Response Team</p>
   </div>
   <div class="hdr-actions">
+    <a class="home-link" href="search.html">🔍 Search</a>
     <a class="home-link" href="reference.html">← Materials</a>
     <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle light or dark mode">☀️</button>
   </div>
@@ -106,6 +107,7 @@
   </div>
   <button class="tb-btn" id="next-btn" title="Next section">Next ›</button>
   <div class="tb-spacer"></div>
+  <a class="tb-btn" id="transcript-link">📝 Transcript</a>
   <a class="tb-btn primary" id="open-tab" target="_blank" rel="noopener">↗ Open in new tab</a>
   <a class="tb-btn" id="download-pdf" download>⭳ PDF</a>
   <a class="tb-btn" id="download-btn" download>⭳ PPTX</a>
@@ -158,6 +160,7 @@ async function init(){
   $('download-pdf').href = pdf;
   $('download-btn').href = pptx;
   $('fb-download').href = pptx;
+  $('transcript-link').href = 'transcript.html?doc=' + sec.base + '#slide-' + (parseInt(params.get('slide'),10) || 1);
 
   // Prev / Next
   const prev = REF_SECTIONS[idx - 1], next = REF_SECTIONS[idx + 1];

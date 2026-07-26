@@ -43,6 +43,10 @@
     letter-spacing:.1em;padding:6px 12px;border-radius:6px;}
   header h1{font-size:1.2rem;font-weight:700;color:var(--primary);}
   header p{font-size:0.8rem;color:var(--text-muted);}
+  .home-link{color:var(--primary-light);text-decoration:none;font-size:0.85rem;
+    font-weight:600;border:1px solid var(--border);padding:8px 15px;border-radius:8px;
+    transition:.15s;white-space:nowrap;}
+  .home-link:hover{background:var(--surface2);border-color:var(--primary);}
 
   main{flex:1;width:100%;max-width:1080px;margin:0 auto;padding:40px 24px 28px;
     display:flex;flex-direction:column;}
@@ -108,6 +112,7 @@
     <p>Community Emergency Response Team</p>
   </div>
   <div class="hdr-actions">
+    <a class="home-link" href="search.html">🔍 Search</a>
     <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle light or dark mode">☀️</button>
   </div>
 </header>
@@ -116,11 +121,20 @@
   <div class="hero">
     <div class="eyebrow">Basic Training · Sections 1–8</div>
     <h2>Look up your <span>CERT</span> reference material.</h2>
-    <p>Search the glossary for a term, or browse the official course materials
-       for any of the eight training sections.</p>
+    <p>Search across everything at once, look up a term in the glossary, or browse the
+       official course materials for any of the eight training sections.</p>
   </div>
 
   <div class="cards">
+
+    <a class="card" href="search.html">
+      <span class="card-icon">🔍</span>
+      <span class="card-kicker">Find anything</span>
+      <h3>Search Everything</h3>
+      <p>One search box across the entire guide — glossary terms and every slide in all 8
+         course sections. Jump straight to the slide or transcript that mentions it.</p>
+      <span class="cta">Start searching</span>
+    </a>
 
     <a class="card" href="glossary.html">
       <span class="tag">80 terms</span>
@@ -146,7 +160,8 @@
 </main>
 
 <footer>
-  <span>Wallingford CERT</span> — Reference Guide · For educational use — follow your local CERT program guidelines.
+  <span>Wallingford CERT</span> — Reference Guide · For educational use — follow your local CERT program guidelines. ·
+  <a href="changelog.html" style="color:var(--primary-light);">Changelog</a>
 </footer>
 
 </body>

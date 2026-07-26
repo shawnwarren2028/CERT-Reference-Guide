@@ -104,6 +104,7 @@
     <p>Community Emergency Response Team</p>
   </div>
   <div class="hdr-actions">
+    <a class="home-link" href="search.html">🔍 Search</a>
     <a class="home-link" href="index.html">← Menu</a>
     <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle light or dark mode">☀️</button>
   </div>
@@ -119,7 +120,8 @@
 </main>
 
 <footer>
-  <span>Wallingford CERT</span> — Training Suite · Course Reference · For educational use — follow your local CERT program guidelines.
+  <span>Wallingford CERT</span> — Reference Guide · Course Reference · For educational use — follow your local CERT program guidelines. ·
+  <a href="changelog.html" style="color:var(--primary-light);">Changelog</a>
 </footer>
 
 <script src="reference-sections.js"></script>
@@ -137,6 +139,7 @@ REF_SECTIONS.forEach(r => {
       <div class="file-type">Section ${r.n} · View presentation</div>
     </div>
     <div class="rc-dl">
+      <a class="rc-btn" href="transcript.html?doc=${r.base}" title="Read the text transcript of ${r.name}">📝 Transcript</a>
       <a class="rc-btn" href="${r.base}.pdf" download title="Download ${r.name} (PDF)">⭳ PDF</a>
       <a class="rc-btn" href="${r.base}.pptx" download title="Download ${r.name} (PowerPoint)">⭳ PPTX</a>
     </div>
