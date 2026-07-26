@@ -21,9 +21,10 @@ Free to run, no install, works on any device.
   each course PDF's source file was prepared.
 - **Field Reference** — the official FEMA CERT Basic Training Participant Manual (2019,
   Section 508), the full narrative text behind the course decks.
-- **Visual Aids** — original diagrams for concepts that are easier to show than describe
-  (fire triangle, structural collapse voids, more to come), each also embedded inline in its
-  matching slide's transcript.
+- **Visual Aids** — original diagrams and animations for concepts that are easier to show than
+  describe (fire triangle, structural collapse voids, the 5 classes of fire, the CERT command
+  structure, and the phases of a crisis), each with its own detail page (image/video, full
+  description, sources, and the matching slide), plus an inline embed on that slide's transcript.
 - **Final exam answer key** — `CERT BASIC TRAINING FINAL EXAM ANSWER KEY.docx`.
 
 Not included: a "CERT Field Operations Guide" (FOG). The versions in wide circulation are a
@@ -34,7 +35,9 @@ it isn't ours to redistribute.
 
 - Static HTML/CSS/JS, no framework, no build step, no third-party runtime dependencies.
 - **Shared modules** — `theme.js` (light/dark theme, icons, accessibility base),
-  `cert-terms.js` (glossary term data), `reference-sections.js` (course section list).
+  `cert-terms.js` (glossary term data), `reference-sections.js` (course section list),
+  `data/diagrams.js` (Visual Aids content + the `diagramMediaHtml()` renderer shared by
+  `diagrams.html`, `diagram.html`, and `transcript.html`'s inline embeds).
 - **Search + transcripts** run entirely client-side against `data/deck-text.js`, a
   precomputed extract of every slide's text. It's generated once (not at page-load) by
   `scripts/extract-decks.py` — re-run it after replacing any section PDF:
@@ -42,6 +45,10 @@ it isn't ours to redistribute.
   pip install -r scripts/requirements.txt
   python scripts/extract-decks.py
   ```
+- **Animated diagrams** are looping, muted, autoplaying MP4s (H.264, rendered in Blender —
+  editable sources under `assets/blender/`), with a static poster frame shown until the video
+  loads and as the gallery thumbnail. Playback falls back to a paused, user-controlled player
+  when the visitor's OS has "reduce motion" enabled.
 - **Hosting** — static files.
 
 ## Run locally
@@ -64,9 +71,11 @@ transcript.html                         Slide-by-slide text transcript for a sec
 changelog.html                          Site changelog + per-section source-file dates
 companion.html                          FEMA companion documents (Participant Manual, etc.)
 cert-participant-manual-2019.pdf        FEMA CERT Basic Training Participant Manual (2019, 508)
-diagrams.html                           Gallery of original diagrams (also embedded in transcripts)
-images/                                 Rendered/exported diagram images
-assets/blender/                         Editable .blend source files for 3D diagrams
+diagrams.html                           Visual Aids gallery (compact cards, links to diagram.html)
+diagram.html                            Diagram detail page (media, full info, sources, matching slide)
+images/                                 Static diagram images (Canva)
+media/                                  Animated diagram videos + poster frames (Blender)
+assets/blender/                         Editable .blend source files for the animations
 reference-sections.js                   Course section metadata
 theme.js                                Shared theme, icons, and accessibility base
 cert-terms.js                           Shared CERT term data

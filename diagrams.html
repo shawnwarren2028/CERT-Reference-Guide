@@ -50,20 +50,21 @@
   .page-hero h2 span{color:var(--primary);}
   .page-hero p{font-size:0.92rem;color:var(--text-muted);line-height:1.55;max-width:680px;}
 
-  .diagram-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:20px;}
+  .diagram-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;}
   .diagram-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
-    overflow:hidden;display:flex;flex-direction:column;scroll-margin-top:16px;
-    transition:border-color .3s,box-shadow .3s;}
-  .diagram-card.flash{border-color:var(--primary);box-shadow:0 0 0 3px rgba(90,170,58,.28);}
-  .diagram-card img{width:100%;height:auto;display:block;background:#111;}
-  .dc-body{padding:18px 20px 20px;}
-  .dc-kicker{font-size:0.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);font-weight:700;margin-bottom:4px;}
-  .dc-title{font-size:1.15rem;font-weight:700;color:var(--primary);margin-bottom:10px;}
-  .dc-desc{font-size:0.88rem;color:var(--text);opacity:.9;line-height:1.6;margin-bottom:12px;}
-  .dc-source{font-size:0.76rem;color:var(--text-muted);margin-bottom:14px;line-height:1.5;}
+    overflow:hidden;display:flex;flex-direction:column;transition:transform .15s,border-color .15s,box-shadow .15s;}
+  .diagram-card:hover{transform:translateY(-3px);border-color:var(--primary);box-shadow:0 10px 22px rgba(0,0,0,.4);}
+  .diagram-card .dc-thumb-wrap{position:relative;background:#111;}
+  .diagram-card img{width:100%;height:180px;object-fit:cover;display:block;}
+  .dc-media-badge{position:absolute;top:10px;right:10px;font-size:0.66rem;font-weight:700;
+    background:rgba(0,0,0,.65);color:#fff;padding:3px 9px;border-radius:20px;letter-spacing:.04em;}
+  .dc-body{padding:16px 18px 18px;display:flex;flex-direction:column;flex:1;}
+  .dc-kicker{font-size:0.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);font-weight:700;margin-bottom:4px;}
+  .dc-title{font-size:1.05rem;font-weight:700;color:var(--primary);margin-bottom:8px;}
+  .dc-desc{font-size:0.86rem;color:var(--text);opacity:.85;line-height:1.5;margin-bottom:14px;flex:1;}
   .dc-btn{display:inline-flex;align-items:center;gap:7px;background:var(--surface2);border:1px solid var(--border);
-    color:var(--primary-light);text-decoration:none;font-size:0.85rem;font-weight:700;padding:10px 16px;
-    border-radius:8px;transition:.15s;}
+    color:var(--primary-light);text-decoration:none;font-size:0.83rem;font-weight:700;padding:9px 15px;
+    border-radius:8px;transition:.15s;align-self:flex-start;}
   .dc-btn:hover{border-color:var(--primary);background:var(--border);}
 
   footer{text-align:center;padding:20px;color:var(--text-muted);font-size:0.76rem;
@@ -103,9 +104,10 @@
 <main>
   <div class="page-hero">
     <h2>🖼 Visual <span>Aids</span></h2>
-    <p>Original diagrams built for this guide, illustrating concepts from the course decks that
-       are easier to show than to describe in text. Each one also appears inline in its matching
-       section transcript.</p>
+    <p>Original diagrams and animations built for this guide, illustrating concepts from the
+       course decks that are easier to show than to describe in text. Each one also appears
+       inline in its matching section transcript — click a card for the full picture, sources,
+       and the exact slide it comes from.</p>
   </div>
 
   <div class="diagram-grid" id="diagram-grid"></div>
@@ -121,30 +123,22 @@
 function esc(s){ return s.replace(/[&<>]/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c])); }
 
 document.getElementById('diagram-grid').innerHTML = DIAGRAMS.map(d => {
-  const slideHref = `transcript.html?doc=${d.docBase}#slide-${d.slide}`;
+  const thumb = d.media.type === 'video' ? d.media.poster : d.media.src;
+  const badge = d.media.type === 'video' ? '🎬 Animated' : '🖼 Diagram';
   return `
-    <article class="diagram-card" id="${d.id}">
-      <img src="${d.img}" alt="${esc(d.alt)}">
+    <article class="diagram-card">
+      <a class="dc-thumb-wrap" href="diagram.html?id=${d.id}">
+        <img src="${thumb}" alt="${esc(d.alt)}">
+        <span class="dc-media-badge">${badge}</span>
+      </a>
       <div class="dc-body">
         <div class="dc-kicker">${esc(d.sectionLabel)}</div>
         <div class="dc-title">${d.icon} ${esc(d.title)}</div>
-        <div class="dc-desc">${esc(d.long)}</div>
-        <div class="dc-source">Source: ${d.sources.map(s => esc(s.label)).join(' · ')}</div>
-        <a class="dc-btn" href="${slideHref}">📄 More Info &amp; Sources →</a>
+        <div class="dc-desc">${esc(d.short)}</div>
+        <a class="dc-btn" href="diagram.html?id=${d.id}">View Details →</a>
       </div>
     </article>`;
 }).join('');
-
-// Deep-link support: #<diagram-id> briefly highlights that card.
-if (location.hash.length > 1){
-  const target = document.getElementById(location.hash.slice(1));
-  if (target){
-    setTimeout(() => {
-      target.scrollIntoView({behavior:'auto', block:'start'});
-      target.classList.add('flash');
-    }, 30);
-  }
-}
 </script>
 </body>
 </html>

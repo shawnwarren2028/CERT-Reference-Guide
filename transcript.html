@@ -74,7 +74,7 @@
   .tr-view:hover{text-decoration:underline;}
   .tr-text{font-size:0.92rem;line-height:1.6;white-space:pre-line;}
   .tr-diagram{margin-top:14px;padding-top:14px;border-top:1px dashed var(--border);}
-  .tr-diagram img{max-width:100%;height:auto;border-radius:8px;background:#fff;display:block;}
+  .tr-diagram img,.tr-diagram video{max-width:100%;height:auto;border-radius:8px;background:#000;display:block;}
   .tr-diagram figcaption{font-size:0.78rem;color:var(--text-muted);margin-top:8px;line-height:1.5;}
   .tr-diagram-btn{display:inline-flex;align-items:center;gap:6px;margin-top:10px;background:var(--surface2);
     border:1px solid var(--border);color:var(--primary-light);text-decoration:none;font-size:0.8rem;
@@ -104,6 +104,7 @@
   </div>
   <div class="hdr-actions">
     <a class="home-link" href="search.html">🔍 Search</a>
+    <a class="home-link" href="diagrams.html">🖼 Visual Aids</a>
     <a class="home-link" href="reference.html">← Materials</a>
     <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle light or dark mode">☀️</button>
   </div>
@@ -178,9 +179,9 @@ async function init(){
     const diagram = DIAGRAM_MAP[sec.base + ':' + p.n];
     const diagramHtml = diagram ? `
       <figure class="tr-diagram">
-        <img src="${diagram.img}" alt="${esc(diagram.alt)}">
+        ${diagramMediaHtml(diagram)}
         <figcaption>${esc(diagram.short)}</figcaption>
-        <a class="tr-diagram-btn" href="diagrams.html#${diagram.id}">${diagram.icon} More info &amp; sources →</a>
+        <a class="tr-diagram-btn" href="diagram.html?id=${diagram.id}">${diagram.icon} More info &amp; sources →</a>
       </figure>` : '';
     return `
     <section class="tr-slide" id="slide-${p.n}">

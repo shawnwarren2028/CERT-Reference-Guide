@@ -94,6 +94,7 @@
   </div>
   <div class="hdr-actions">
     <a class="home-link" href="search.html">🔍 Search</a>
+    <a class="home-link" href="diagrams.html">🖼 Visual Aids</a>
     <a class="home-link" href="reference.html">← Materials</a>
     <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle light or dark mode">☀️</button>
   </div>
@@ -107,6 +108,7 @@
   </div>
   <button class="tb-btn" id="next-btn" title="Next section">Next ›</button>
   <div class="tb-spacer"></div>
+  <a class="tb-btn" id="diagram-link" style="display:none">🖼 Diagram</a>
   <a class="tb-btn" id="transcript-link">📝 Transcript</a>
   <a class="tb-btn primary" id="open-tab" target="_blank" rel="noopener">↗ Open in new tab</a>
   <a class="tb-btn" id="download-pdf" download>⭳ PDF</a>
@@ -129,6 +131,7 @@
 </div>
 
 <script src="reference-sections.js"></script>
+<script src="data/diagrams.js"></script>
 <script>
 const params = new URLSearchParams(location.search);
 const docBase = params.get('doc');
@@ -160,7 +163,14 @@ async function init(){
   $('download-pdf').href = pdf;
   $('download-btn').href = pptx;
   $('fb-download').href = pptx;
-  $('transcript-link').href = 'transcript.html?doc=' + sec.base + '#slide-' + (parseInt(params.get('slide'),10) || 1);
+  const curSlide = parseInt(params.get('slide'),10) || 1;
+  $('transcript-link').href = 'transcript.html?doc=' + sec.base + '#slide-' + curSlide;
+  const diagram = DIAGRAMS.find(d => d.docBase === sec.base && d.slide === curSlide);
+  if (diagram){
+    $('diagram-link').href = 'diagram.html?id=' + diagram.id;
+    $('diagram-link').textContent = diagram.icon + ' Diagram';
+    $('diagram-link').style.display = '';
+  }
 
   // Prev / Next
   const prev = REF_SECTIONS[idx - 1], next = REF_SECTIONS[idx + 1];

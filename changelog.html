@@ -91,6 +91,24 @@
   <div id="site-log">
     <div class="entry">
       <div class="entry-date">2026-07-26</div>
+      <div class="entry-body">Reworked Visual Aids navigation and added three animated diagrams:
+        <ul>
+          <li>Each diagram now has its own detail page (<code>diagram.html</code>) with the full
+            image or video, complete description, clickable source links, and the exact course
+            slide it illustrates — one destination instead of bouncing between pages</li>
+          <li>A persistent <strong>🖼 Visual Aids</strong> button was added to the transcript and
+            course-viewer headers</li>
+          <li>Three new animated diagrams, modeled and rendered in Blender: <em>The 5 Classes of
+            Fire</em>, <em>CERT Team Command Structure</em>, and <em>Phases of a Crisis</em> —
+            looping, muted, autoplaying video that pauses for visitors with "reduce motion" set</li>
+          <li>Note: "Phases of a Crisis" (Impact → Inventory → Rescue → Recovery) replaces the
+            originally-planned "FEMA Disaster Phases" — that 4-phase cycle isn't actually taught
+            in this course; this is what Section 7 covers instead</li>
+        </ul>
+      </div>
+    </div>
+    <div class="entry">
+      <div class="entry-date">2026-07-26</div>
       <div class="entry-body">Fixed a bug where <strong>Search</strong>, <strong>Transcripts</strong>,
         and the <strong>Changelog</strong>'s source-date table could fail to load ("Couldn't load
         the transcript data") — they used to <code>fetch()</code> a local JSON file, which browsers
