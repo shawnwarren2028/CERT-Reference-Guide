@@ -19,7 +19,13 @@ Free to run, no install, works on any device.
   section, for fast skimming, in-page search, and screen readers.
 - **Changelog** — what's changed on the site, plus a per-section note of when
   each course PDF's source file was prepared.
+- **Field Reference** — the official FEMA CERT Basic Training Participant Manual (2019,
+  Section 508), the full narrative text behind the course decks.
 - **Final exam answer key** — `CERT BASIC TRAINING FINAL EXAM ANSWER KEY.docx`.
+
+Not included: a "CERT Field Operations Guide" (FOG). The versions in wide circulation are a
+copyrighted commercial product (© QuickSeries Publishing), not a FEMA public-domain work, so
+it isn't ours to redistribute.
 
 ## Tech overview
 
@@ -53,6 +59,8 @@ viewer.html                             In-site deck viewer (PDF, with Office fa
 search.html                             Site-wide search (glossary + all decks)
 transcript.html                         Slide-by-slide text transcript for a section
 changelog.html                          Site changelog + per-section source-file dates
+companion.html                          FEMA companion documents (Participant Manual, etc.)
+cert-participant-manual-2019.pdf        FEMA CERT Basic Training Participant Manual (2019, 508)
 reference-sections.js                   Course section metadata
 theme.js                                Shared theme, icons, and accessibility base
 cert-terms.js                           Shared CERT term data
