@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Extract per-slide text + metadata from the 8 CERT course PDFs into data/deck-text.json.
+"""Extract per-slide text + metadata from the 8 CERT course PDFs into data/deck-text.js.
 
 This is the single precomputed source both search.html (site-wide search) and
 transcript.html (accessible text transcripts) read at runtime. Static output,
@@ -108,8 +108,15 @@ def main():
         "generatedAt": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         "sections": out_sections,
     }
-    out_path = ROOT / "data" / "deck-text.json"
-    out_path.write_text(json.dumps(out, ensure_ascii=False, indent=1), encoding="utf-8")
+    # A classic <script src> global (like cert-terms.js / reference-sections.js) rather than a
+    # fetch()-ed JSON file: fetch() of a local file is blocked by the browser when a page is
+    # opened directly (file://) instead of through a server, which silently broke
+    # search.html/transcript.html/changelog.html for anyone not running `npx serve`.
+    out_path = ROOT / "data" / "deck-text.js"
+    out_path.write_text(
+        "const DECK_TEXT = " + json.dumps(out, ensure_ascii=False, indent=1) + ";\n",
+        encoding="utf-8",
+    )
     print(f"Wrote {out_path} ({out_path.stat().st_size:,} bytes)")
 
 

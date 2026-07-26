@@ -76,7 +76,10 @@
   .tr-diagram{margin-top:14px;padding-top:14px;border-top:1px dashed var(--border);}
   .tr-diagram img{max-width:100%;height:auto;border-radius:8px;background:#fff;display:block;}
   .tr-diagram figcaption{font-size:0.78rem;color:var(--text-muted);margin-top:8px;line-height:1.5;}
-  .tr-diagram figcaption a{color:var(--primary-light);}
+  .tr-diagram-btn{display:inline-flex;align-items:center;gap:6px;margin-top:10px;background:var(--surface2);
+    border:1px solid var(--border);color:var(--primary-light);text-decoration:none;font-size:0.8rem;
+    font-weight:700;padding:8px 13px;border-radius:8px;transition:.15s;}
+  .tr-diagram-btn:hover{border-color:var(--primary);background:var(--border);}
 
   footer{text-align:center;padding:20px;color:var(--text-muted);font-size:0.76rem;
     border-top:1px solid var(--border);}
@@ -132,20 +135,12 @@
 </footer>
 
 <script src="reference-sections.js"></script>
+<script src="data/deck-text.js"></script>
+<script src="data/diagrams.js"></script>
 <script>
-// Original diagrams (see diagrams.html) that illustrate a specific slide.
-const DIAGRAM_MAP = {
-  'section_02_unit_2_ppt_508:6': {
-    src: 'images/diagram-fire-triangle.png',
-    alt: 'Diagram of the fire triangle labeled Heat, Fuel, and Oxygen, with the caption: remove any one side and the fire goes out.',
-    caption: 'The Fire Triangle — remove any one side and the fire goes out.'
-  },
-  'section_05_unit_5_ppt_508:23': {
-    src: 'images/diagram-collapse-voids.png',
-    alt: 'Side-view diagram comparing three structural collapse void types: pancake void, lean-to void, and V-shape void.',
-    caption: 'Structural collapse void types: Pancake, Lean-to, and V-void.'
-  },
-};
+// Original diagrams (see diagrams.html) that illustrate a specific slide, keyed by "<docBase>:<slide>".
+const DIAGRAM_MAP = {};
+DIAGRAMS.forEach(d => { DIAGRAM_MAP[d.docBase + ':' + d.slide] = d; });
 
 const params = new URLSearchParams(location.search);
 const docBase = params.get('doc');
@@ -172,15 +167,7 @@ async function init(){
   if (next) $('next-btn').onclick = () => location.href = 'transcript.html?doc=' + next.base;
   else $('next-btn').disabled = true;
 
-  let data;
-  try{
-    const r = await fetch('data/deck-text.json');
-    data = await r.json();
-  }catch(e){
-    $('slides').innerHTML = '<div class="tr-note">Couldn\'t load the transcript data. Try reloading the page.</div>';
-    return;
-  }
-  const sec = data.sections.find(s => s.base === secRef.base);
+  const sec = DECK_TEXT.sections.find(s => s.base === secRef.base);
   if (!sec){
     $('slides').innerHTML = '<div class="tr-note">No transcript data for this section yet.</div>';
     return;
@@ -191,8 +178,9 @@ async function init(){
     const diagram = DIAGRAM_MAP[sec.base + ':' + p.n];
     const diagramHtml = diagram ? `
       <figure class="tr-diagram">
-        <img src="${diagram.src}" alt="${esc(diagram.alt)}">
-        <figcaption>${esc(diagram.caption)} — <a href="diagrams.html">more visual aids</a></figcaption>
+        <img src="${diagram.img}" alt="${esc(diagram.alt)}">
+        <figcaption>${esc(diagram.short)}</figcaption>
+        <a class="tr-diagram-btn" href="diagrams.html#${diagram.id}">${diagram.icon} More info &amp; sources →</a>
       </figure>` : '';
     return `
     <section class="tr-slide" id="slide-${p.n}">

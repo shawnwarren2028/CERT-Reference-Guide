@@ -91,6 +91,18 @@
   <div id="site-log">
     <div class="entry">
       <div class="entry-date">2026-07-26</div>
+      <div class="entry-body">Fixed a bug where <strong>Search</strong>, <strong>Transcripts</strong>,
+        and the <strong>Changelog</strong>'s source-date table could fail to load ("Couldn't load
+        the transcript data") — they used to <code>fetch()</code> a local JSON file, which browsers
+        block when a page is opened directly instead of through a server. Switched to a plain
+        <code>&lt;script src&gt;</code> data file instead, the same approach the glossary already used.
+        Also redid both Visual Aids diagrams with more color and detail, and reworked the gallery
+        cards: fuller descriptions, a plain-text source citation, and a dedicated button per card
+        instead of a whole-card link.
+      </div>
+    </div>
+    <div class="entry">
+      <div class="entry-date">2026-07-26</div>
       <div class="entry-body">Added a <strong>Visual Aids</strong> gallery with the first two
         original diagrams: <em>The Fire Triangle</em> (built with Canva) and
         <em>Structural Collapse Voids</em> (modeled in Blender). Both are also embedded inline
@@ -131,24 +143,20 @@
     <thead><tr><th>Section</th><th>Source file prepared</th></tr></thead>
     <tbody><tr><td colspan="2" style="color:var(--text-muted);">Loading…</td></tr></tbody>
   </table>
-  <div class="src-note">Regenerated automatically from <code>data/deck-text.json</code> — re-run
+  <div class="src-note">Regenerated automatically from <code>data/deck-text.js</code> — re-run
     <code>scripts/extract-decks.py</code> after replacing any section PDF and this table updates itself.</div>
 </main>
 
 <footer><span style="color:var(--primary)">Wallingford CERT</span> — Reference Guide · Changelog</footer>
 
+<script src="data/deck-text.js"></script>
 <script>
-fetch('data/deck-text.json').then(r => r.json()).then(data => {
-  const rows = data.sections.map(s => `
-    <tr>
-      <td>${s.icon} Section ${s.n} — ${s.name}</td>
-      <td class="num">${(s.sourceMeta && s.sourceMeta.creationDate) || '—'}</td>
-    </tr>`).join('');
-  document.querySelector('#src-table tbody').innerHTML = rows;
-}).catch(() => {
-  document.querySelector('#src-table tbody').innerHTML =
-    '<tr><td colspan="2" style="color:var(--text-muted);">Couldn\'t load source-date data.</td></tr>';
-});
+const rows = DECK_TEXT.sections.map(s => `
+  <tr>
+    <td>${s.icon} Section ${s.n} — ${s.name}</td>
+    <td class="num">${(s.sourceMeta && s.sourceMeta.creationDate) || '—'}</td>
+  </tr>`).join('');
+document.querySelector('#src-table tbody').innerHTML = rows;
 </script>
 </body>
 </html>

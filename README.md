@@ -35,7 +35,7 @@ it isn't ours to redistribute.
 - Static HTML/CSS/JS, no framework, no build step, no third-party runtime dependencies.
 - **Shared modules** — `theme.js` (light/dark theme, icons, accessibility base),
   `cert-terms.js` (glossary term data), `reference-sections.js` (course section list).
-- **Search + transcripts** run entirely client-side against `data/deck-text.json`, a
+- **Search + transcripts** run entirely client-side against `data/deck-text.js`, a
   precomputed extract of every slide's text. It's generated once (not at page-load) by
   `scripts/extract-decks.py` — re-run it after replacing any section PDF:
   ```bash
@@ -73,8 +73,9 @@ cert-terms.js                           Shared CERT term data
 manifest.json                           PWA manifest
 section_0X_unit_X_ppt_508.{pdf,pptx}    Course materials, Sections 1–8
 CERT BASIC TRAINING FINAL EXAM ANSWER KEY.docx
-scripts/extract-decks.py                Precomputes data/deck-text.json from the PDFs
-data/deck-text.json                     Generated per-slide text + metadata (search + transcripts)
+scripts/extract-decks.py                Precomputes data/deck-text.js from the PDFs
+data/deck-text.js                       Generated per-slide text + metadata (search + transcripts)
+data/diagrams.js                        Visual Aids content (shared by diagrams.html + transcript.html)
 ```
 
 ## Data & privacy

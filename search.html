@@ -130,6 +130,7 @@
 
 <script src="cert-terms.js"></script>
 <script src="reference-sections.js"></script>
+<script src="data/deck-text.js"></script>
 <script>
 const $ = id => document.getElementById(id);
 const elResults = $('results'), elCount = $('count-line'), elSearch = $('search');
@@ -165,9 +166,7 @@ async function buildIndex(){
     });
   });
   try{
-    const r = await fetch('data/deck-text.json');
-    const data = await r.json();
-    data.sections.forEach(sec => {
+    DECK_TEXT.sections.forEach(sec => {
       sec.pages.forEach(p => {
         if (!p.text) return;
         items.push({
