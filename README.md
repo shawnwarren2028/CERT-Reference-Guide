@@ -21,10 +21,12 @@ Free to run, no install, works on any device.
   each course PDF's source file was prepared.
 - **Field Reference** — the official FEMA CERT Basic Training Participant Manual (2019,
   Section 508), the full narrative text behind the course decks.
-- **Visual Aids** — original diagrams and animations for concepts that are easier to show than
-  describe (fire triangle, structural collapse voids, the 5 classes of fire, the CERT command
-  structure, and the phases of a crisis), each with its own detail page (image/video, full
-  description, sources, and the matching slide), plus an inline embed on that slide's transcript.
+- **Visual Aids** — 9 original diagrams and animations for concepts that are easier to show than
+  describe: the fire triangle, structural collapse voids, each of the 5 classes of fire (modeled
+  and animated individually — its own burning material, its own correct extinguishing agent, and
+  a moving camera), the CERT command structure, and the phases of a crisis. Each has its own
+  detail page (image/video, full description, sources, and the matching slide), plus an inline
+  embed on that slide's transcript.
 - **Final exam answer key** — `CERT BASIC TRAINING FINAL EXAM ANSWER KEY.docx`.
 
 Not included: a "CERT Field Operations Guide" (FOG). The versions in wide circulation are a
@@ -48,7 +50,9 @@ it isn't ours to redistribute.
 - **Animated diagrams** are looping, muted, autoplaying MP4s (H.264, rendered in Blender —
   editable sources under `assets/blender/`), with a static poster frame shown until the video
   loads and as the gallery thumbnail. Playback falls back to a paused, user-controlled player
-  when the visitor's OS has "reduce motion" enabled.
+  when the visitor's OS has "reduce motion" enabled. A slide can carry more than one diagram
+  (the 5 fire-class animations all reference the same slide) — `DIAGRAM_MAP` in `transcript.html`
+  keys on `"<docBase>:<slide>"` to an array, not a single diagram.
 - **Hosting** — static files.
 
 ## Run locally

@@ -165,10 +165,14 @@ async function init(){
   $('fb-download').href = pptx;
   const curSlide = parseInt(params.get('slide'),10) || 1;
   $('transcript-link').href = 'transcript.html?doc=' + sec.base + '#slide-' + curSlide;
-  const diagram = DIAGRAMS.find(d => d.docBase === sec.base && d.slide === curSlide);
-  if (diagram){
-    $('diagram-link').href = 'diagram.html?id=' + diagram.id;
-    $('diagram-link').textContent = diagram.icon + ' Diagram';
+  const diagramsHere = DIAGRAMS.filter(d => d.docBase === sec.base && d.slide === curSlide);
+  if (diagramsHere.length === 1){
+    $('diagram-link').href = 'diagram.html?id=' + diagramsHere[0].id;
+    $('diagram-link').textContent = diagramsHere[0].icon + ' Diagram';
+    $('diagram-link').style.display = '';
+  } else if (diagramsHere.length > 1){
+    $('diagram-link').href = 'transcript.html?doc=' + sec.base + '#slide-' + curSlide;
+    $('diagram-link').textContent = '🖼 ' + diagramsHere.length + ' Diagrams';
     $('diagram-link').style.display = '';
   }
 

@@ -140,8 +140,12 @@
 <script src="data/diagrams.js"></script>
 <script>
 // Original diagrams (see diagrams.html) that illustrate a specific slide, keyed by "<docBase>:<slide>".
+// A slide can have more than one (e.g. the 5 fire-class animations all reference the same slide).
 const DIAGRAM_MAP = {};
-DIAGRAMS.forEach(d => { DIAGRAM_MAP[d.docBase + ':' + d.slide] = d; });
+DIAGRAMS.forEach(d => {
+  const key = d.docBase + ':' + d.slide;
+  (DIAGRAM_MAP[key] = DIAGRAM_MAP[key] || []).push(d);
+});
 
 const params = new URLSearchParams(location.search);
 const docBase = params.get('doc');
@@ -176,13 +180,13 @@ async function init(){
   $('sec-sub').textContent = 'Section ' + secRef.n + ' of ' + REF_SECTIONS.length + ' · ' + sec.pageCount + ' slides';
 
   $('slides').innerHTML = sec.pages.map(p => {
-    const diagram = DIAGRAM_MAP[sec.base + ':' + p.n];
-    const diagramHtml = diagram ? `
+    const diagramsHere = DIAGRAM_MAP[sec.base + ':' + p.n] || [];
+    const diagramHtml = diagramsHere.map(diagram => `
       <figure class="tr-diagram">
         ${diagramMediaHtml(diagram)}
         <figcaption>${esc(diagram.short)}</figcaption>
         <a class="tr-diagram-btn" href="diagram.html?id=${diagram.id}">${diagram.icon} More info &amp; sources →</a>
-      </figure>` : '';
+      </figure>`).join('');
     return `
     <section class="tr-slide" id="slide-${p.n}">
       <div class="tr-slide-head">
