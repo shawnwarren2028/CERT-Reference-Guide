@@ -21,6 +21,9 @@ Free to run, no install, works on any device.
   each course PDF's source file was prepared.
 - **Field Reference** — the official FEMA CERT Basic Training Participant Manual (2019,
   Section 508), the full narrative text behind the course decks.
+- **Visual Aids** — original diagrams for concepts that are easier to show than describe
+  (fire triangle, structural collapse voids, more to come), each also embedded inline in its
+  matching slide's transcript.
 - **Final exam answer key** — `CERT BASIC TRAINING FINAL EXAM ANSWER KEY.docx`.
 
 Not included: a "CERT Field Operations Guide" (FOG). The versions in wide circulation are a
@@ -61,6 +64,9 @@ transcript.html                         Slide-by-slide text transcript for a sec
 changelog.html                          Site changelog + per-section source-file dates
 companion.html                          FEMA companion documents (Participant Manual, etc.)
 cert-participant-manual-2019.pdf        FEMA CERT Basic Training Participant Manual (2019, 508)
+diagrams.html                           Gallery of original diagrams (also embedded in transcripts)
+images/                                 Rendered/exported diagram images
+assets/blender/                         Editable .blend source files for 3D diagrams
 reference-sections.js                   Course section metadata
 theme.js                                Shared theme, icons, and accessibility base
 cert-terms.js                           Shared CERT term data
