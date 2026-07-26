@@ -91,6 +91,20 @@
   <div id="site-log">
     <div class="entry">
       <div class="entry-date">2026-07-26</div>
+      <div class="entry-body">Gave <strong>CERT Team Command Structure</strong> and
+        <strong>Phases of a Crisis</strong> the same movement/detail pass as the fire-class
+        animations: both now have a traveling glowing signal pulse running along the connecting
+        lines as each node/phase activates, and a gentle camera swing. Along the way, fixed a
+        real bug: both had originally used a full 360° camera orbit, which spent half the loop
+        staring at the *back* of the flat text labels — Blender's curve-based text only renders
+        correctly from the front, so labels turned blank or mirrored for half the animation.
+        Replaced with a narrow front-facing swing that keeps every label readable throughout.
+        Also backfilled <code>assets/blender/fire-class-a.blend</code>, which was missed in the
+        previous round.
+      </div>
+    </div>
+    <div class="entry">
+      <div class="entry-date">2026-07-26</div>
       <div class="entry-body">Replaced the single "5 Classes of Fire" animation with five separate,
         fully modeled scenes — one per class, each with its own burning material and the correct
         extinguishing agent:
