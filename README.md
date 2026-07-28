@@ -16,6 +16,8 @@ Free to run, no install, works on any device.
   Participant Manual as its own card.
 - **Search Everything** — one search box across the glossary and every slide
   in all 8 course decks, linking straight to the matching slide or transcript.
+  The search bar lives right on the home page (submits to `search.html?q=`);
+  `search.html` also supports that deep link directly.
 - **Transcripts** — an auto-generated, slide-by-slide text transcript of each
   section, for fast skimming, in-page search, and screen readers.
 - **Changelog** — what's changed on the site, plus a per-section note of when
@@ -27,12 +29,15 @@ Free to run, no install, works on any device.
   & local conditions, security, worker safety, fire & utility safety, incident command,
   and family preparedness. Every card links out to the source's own site rather than
   being hosted here. (The Participant Manual itself now lives under Course Materials.)
-- **Visual Aids** — 9 original diagrams and animations for concepts that are easier to show than
-  describe: the fire triangle, structural collapse voids, each of the 5 classes of fire (modeled
-  and animated individually — its own burning material, its own correct extinguishing agent, and
-  a moving camera), the CERT command structure, and the phases of a crisis. Each has its own
-  detail page (image/video, full description, sources, and the matching slide), plus an inline
-  embed on that slide's transcript.
+- **Visual Aids** — 13 original diagrams and animations, grouped by section on the gallery page.
+  9 illustrate course concepts directly: the fire triangle, structural collapse voids, each of the
+  5 classes of fire (modeled and animated individually — its own burning material, its own correct
+  extinguishing agent, and a moving camera), the CERT command structure, and the phases of a
+  crisis. 4 more (built in Canva) summarize Field Reference material that isn't tied to a specific
+  slide: Know Your Hazards, Run. Hide. Fight., Home Fire Escape Plan, and Build a Kit. Make a Plan.
+  Stay Informed. Each has its own detail page (image/video, full description, sources, and the
+  matching slide where there is one), plus an inline embed on that slide's transcript for the
+  course-linked ones.
 - **Final exam answer key** — `CERT BASIC TRAINING FINAL EXAM ANSWER KEY.docx`.
 
 Not included: a "CERT Field Operations Guide" (FOG). The versions in wide circulation are a

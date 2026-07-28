@@ -50,6 +50,10 @@
   .page-hero h2 span{color:var(--primary);}
   .page-hero p{font-size:0.92rem;color:var(--text-muted);line-height:1.55;max-width:680px;}
 
+  .dg-group{margin-bottom:36px;}
+  .dg-group:last-child{margin-bottom:0;}
+  .dg-group-head{font-size:1.1rem;font-weight:800;color:var(--primary);margin-bottom:16px;
+    padding-bottom:8px;border-bottom:1px solid var(--border);}
   .diagram-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;}
   .diagram-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
     overflow:hidden;display:flex;flex-direction:column;transition:transform .15s,border-color .15s,box-shadow .15s;}
@@ -110,7 +114,7 @@
        and the exact slide it comes from.</p>
   </div>
 
-  <div class="diagram-grid" id="diagram-grid"></div>
+  <div id="diagram-groups"></div>
 </main>
 
 <footer>
@@ -122,7 +126,7 @@
 <script>
 function esc(s){ return s.replace(/[&<>]/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c])); }
 
-document.getElementById('diagram-grid').innerHTML = DIAGRAMS.map(d => {
+function cardHtml(d){
   const thumb = d.media.type === 'video' ? d.media.poster : d.media.src;
   const badge = d.media.type === 'video' ? '🎬 Animated' : '🖼 Diagram';
   return `
@@ -138,7 +142,24 @@ document.getElementById('diagram-grid').innerHTML = DIAGRAMS.map(d => {
         <a class="dc-btn" href="diagram.html?id=${d.id}">View Details →</a>
       </div>
     </article>`;
-}).join('');
+}
+
+// Group like sections together — order follows each label's first appearance in DIAGRAMS.
+const groups = [];
+const groupByLabel = {};
+DIAGRAMS.forEach(d => {
+  if (!groupByLabel[d.sectionLabel]){
+    groupByLabel[d.sectionLabel] = [];
+    groups.push({ label: d.sectionLabel, items: groupByLabel[d.sectionLabel] });
+  }
+  groupByLabel[d.sectionLabel].push(d);
+});
+
+document.getElementById('diagram-groups').innerHTML = groups.map(g => `
+  <div class="dg-group">
+    <div class="dg-group-head">${esc(g.label)}</div>
+    <div class="diagram-grid">${g.items.map(cardHtml).join('')}</div>
+  </div>`).join('');
 </script>
 </body>
 </html>

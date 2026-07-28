@@ -51,12 +51,23 @@
   main{flex:1;width:100%;max-width:1080px;margin:0 auto;padding:40px 24px 28px;
     display:flex;flex-direction:column;}
 
-  .hero{text-align:center;margin-bottom:38px;}
+  .hero{text-align:center;margin-bottom:30px;}
   .hero .eyebrow{font-size:0.78rem;letter-spacing:.22em;text-transform:uppercase;
     color:var(--primary-light);font-weight:700;margin-bottom:10px;}
   .hero h2{font-size:2.3rem;font-weight:800;line-height:1.15;margin-bottom:14px;}
   .hero h2 span{color:var(--primary);}
   .hero p{font-size:1rem;color:var(--text-muted);max-width:620px;margin:0 auto;line-height:1.6;}
+
+  .home-search{width:100%;max-width:620px;margin:0 auto 38px;display:flex;align-items:center;gap:10px;
+    background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:13px 18px;
+    transition:border-color .15s;}
+  .home-search:focus-within{border-color:var(--primary);}
+  .home-search .hs-icon{color:var(--text-muted);font-size:1.15rem;flex-shrink:0;}
+  .home-search input{flex:1;min-width:0;background:none;border:none;color:var(--text);font-size:1.05rem;outline:none;}
+  .home-search button{flex-shrink:0;background:var(--primary);color:#000;border:none;font-weight:700;
+    font-size:0.85rem;padding:9px 18px;border-radius:8px;cursor:pointer;transition:background .15s;}
+  .home-search button:hover{background:var(--primary-light);}
+  @media (max-width:600px){ .home-search{padding:11px 14px;} .home-search button{padding:8px 12px;font-size:0.8rem;} }
 
   .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;}
   .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
@@ -125,16 +136,13 @@
        official course materials for any of the eight training sections.</p>
   </div>
 
-  <div class="cards">
+  <form class="home-search" action="search.html" method="GET">
+    <span class="hs-icon">🔍</span>
+    <input type="search" name="q" placeholder="Search terms and course material…" autocomplete="off">
+    <button type="submit">Search</button>
+  </form>
 
-    <a class="card" href="search.html">
-      <span class="card-icon">🔍</span>
-      <span class="card-kicker">Find anything</span>
-      <h3>Search Everything</h3>
-      <p>One search box across the entire guide — glossary terms and every slide in all 8
-         course sections. Jump straight to the slide or transcript that mentions it.</p>
-      <span class="cta">Start searching</span>
-    </a>
+  <div class="cards">
 
     <a class="card" href="glossary.html">
       <span class="tag">80 terms</span>
