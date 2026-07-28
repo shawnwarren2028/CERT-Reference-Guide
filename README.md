@@ -21,10 +21,12 @@ Free to run, no install, works on any device.
   each course PDF's source file was prepared.
 - **Field Reference** — the official FEMA CERT Basic Training Participant Manual (2019,
   Section 508), the full narrative text behind the course decks, plus a curated set of
-  multi-agency links (FEMA, Ready.gov, NOAA/NWS, CISA, OSHA, U.S. Fire Administration,
-  American Red Cross) covering hazard-specific guides, security, worker safety, fire
-  safety, incident command, and family preparedness — every card links out to the source
-  agency's own site rather than being hosted here.
+  ~30 multi-agency links (FEMA, Ready.gov, NOAA/NWS, USGS, CISA, OSHA, U.S. Fire
+  Administration, American Red Cross, HHS, Census Bureau, GDACS, and more) across seven
+  categories — hazard-specific guides (including live monitors like earthquake/hurricane/
+  wildfire trackers), live situational awareness & local conditions, security, worker
+  safety, fire & utility safety, incident command, and family preparedness. Every card
+  links out to the source's own site rather than being hosted here.
 - **Visual Aids** — 9 original diagrams and animations for concepts that are easier to show than
   describe: the fire triangle, structural collapse voids, each of the 5 classes of fire (modeled
   and animated individually — its own burning material, its own correct extinguishing agent, and
