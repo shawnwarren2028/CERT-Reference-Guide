@@ -5,16 +5,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Wallingford CERT — Glossary</title>
-<meta name="description" content="A searchable glossary of 80+ CERT terms, grouped by course section with definitions, study notes, and links to the source material.">
+<meta name="description" content="A searchable glossary of 98 CERT and multi-agency terms — view alphabetically, by course section, or by the agency each term comes from.">
 <meta name="theme-color" content="#5aaa3a">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Wallingford CERT Training Suite">
 <meta property="og:title" content="Wallingford CERT — Glossary">
-<meta property="og:description" content="A searchable glossary of 80+ CERT terms, grouped by course section with definitions, study notes, and links to the source material.">
+<meta property="og:description" content="A searchable glossary of 98 CERT and multi-agency terms — view alphabetically, by course section, or by the agency each term comes from.">
 <meta property="og:image" content="icon-512.png">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Wallingford CERT — Glossary">
-<meta name="twitter:description" content="A searchable glossary of 80+ CERT terms, grouped by course section with definitions, study notes, and links to the source material.">
+<meta name="twitter:description" content="A searchable glossary of 98 CERT and multi-agency terms — view alphabetically, by course section, or by the agency each term comes from.">
 <style>
   :root{
     --bg:#0e1208; --surface:#1a2012; --surface2:#243018; --border:#3a5228;
@@ -57,6 +57,13 @@
   .search-box input{flex:1;background:none;border:none;color:var(--text);font-size:1rem;outline:none;}
   .search-box .si{color:var(--text-muted);font-size:1.1rem;}
   .count-line{font-size:0.78rem;color:var(--text-muted);margin-top:8px;}
+
+  .view-tabs{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap;}
+  .view-tab{-webkit-appearance:none;appearance:none;font-family:inherit;
+    background:var(--surface);border:1px solid var(--border);color:var(--text-muted);
+    font-size:0.8rem;font-weight:700;padding:7px 14px;border-radius:20px;cursor:pointer;transition:.15s;}
+  .view-tab:hover{border-color:var(--primary);color:var(--text);}
+  .view-tab.active{background:var(--primary);border-color:var(--primary);color:#06210a;}
 
   .g-section{margin-top:26px;}
   .g-sec-head{display:flex;align-items:center;gap:11px;margin-bottom:12px;padding-bottom:8px;
@@ -118,15 +125,21 @@
 <main>
   <div class="g-hero">
     <h2>CERT <span>Glossary</span></h2>
-    <p>Every term from the Crossword Drill, grouped by training section with its definition and a
-       quick why-it-matters note. Search to find a term fast, then click it to open the slide in
-       the course presentation where it's covered.</p>
+    <p>Every CERT course term, plus key terms from the Field Reference's multi-agency material,
+       each with a definition and a quick why-it-matters note. Search to find a term fast, or
+       switch how the list is organized — alphabetically, by course section, or by the agency
+       the term comes from — then click a term to open its source.</p>
   </div>
 
   <div class="search-row">
     <div class="search-box">
       <span class="si">🔍</span>
       <input id="search" type="search" placeholder="Search terms, definitions, or notes…" autocomplete="off">
+    </div>
+    <div class="view-tabs" id="view-tabs">
+      <button class="view-tab" data-mode="alpha">Alphabetical</button>
+      <button class="view-tab" data-mode="section">By Section</button>
+      <button class="view-tab" data-mode="agency">By Agency</button>
     </div>
     <div class="count-line" id="count-line"></div>
   </div>
@@ -145,48 +158,94 @@ const DIFF_LABEL={1:'Core',2:'Intermediate',3:'Advanced'};
 const elGloss=document.getElementById('glossary');
 const elCount=document.getElementById('count-line');
 const elSearch=document.getElementById('search');
+const elTabs=document.getElementById('view-tabs');
 const TOTAL=CERT_TERMS.length;
+let mode='alpha';
 
 function esc(s){ return s.replace(/[&<>]/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c])); }
 function hl(s,q){ if(!q) return esc(s);
   const i=s.toLowerCase().indexOf(q); if(i<0) return esc(s);
   return esc(s.slice(0,i))+'<mark>'+esc(s.slice(i,i+q.length))+'</mark>'+esc(s.slice(i+q.length));
 }
+// Each term links to the slide in its deck where it's covered, an explicit
+// override page (t.srcHref) for terms not literally in a deck, or the
+// section's own fallback page (e.g. companion.html for Field Reference terms).
+function termHref(t){
+  if(t.srcHref) return t.srcHref;
+  const sec=SECTION_BY[SECTION_OF[t.a]];
+  const deck = sec && sec.ref.endsWith('.pptx') ? sec.ref.replace(/\.pptx$/, '') : null;
+  if(deck) return 'viewer.html?doc=' + deck + '&slide=' + ((typeof TERM_SLIDE!=='undefined' && TERM_SLIDE[t.a]) || 1);
+  return sec ? sec.ref : 'reference.html';
+}
+function termCardHtml(t,q){
+  const href=termHref(t);
+  return `<div class="term">
+    <div class="term-top"><a class="term-name" href="${href}" target="_blank" rel="noopener"
+      title="Open the source covering ${esc(t.a)}">${hl(t.a,q)}</a>
+      <span class="term-diff">${DIFF_LABEL[t.d]||''}</span></div>
+    <div class="term-clue">${hl(t.clue,q)}</div>
+    <div class="term-info">${hl(t.info,q)}</div>
+  </div>`;
+}
+function groupHtml(icon,name,terms,q){
+  return `<div class="g-section">
+    <div class="g-sec-head">
+      <span class="gh-ic">${icon}</span>
+      <span class="gh-name">${esc(name)}</span>
+      <span class="gh-count">${terms.length} term${terms.length===1?'':'s'}</span>
+    </div>
+    ${terms.map(t=>termCardHtml(t,q)).join('')}
+  </div>`;
+}
+
 function render(q){
   q=(q||'').trim().toLowerCase();
-  elGloss.innerHTML=''; let shown=0;
-  SECTION_DEFS.forEach(sec=>{
-    let terms=CERT_TERMS.filter(t=>SECTION_OF[t.a]===sec.id);
-    if(q) terms=terms.filter(t=> t.a.toLowerCase().includes(q) || t.clue.toLowerCase().includes(q) || t.info.toLowerCase().includes(q));
-    terms.sort((a,b)=>a.a.localeCompare(b.a));
-    if(!terms.length) return;
-    shown+=terms.length;
-    const deck = sec.ref.endsWith('.pptx') ? sec.ref.replace(/\.pptx$/, '') : null;
-    const wrap=document.createElement('div'); wrap.className='g-section';
-    wrap.innerHTML=`
-      <div class="g-sec-head">
-        <span class="gh-ic">${sec.icon}</span>
-        <span class="gh-name">${sec.name}</span>
-        <span class="gh-count">${terms.length} term${terms.length===1?'':'s'}</span>
-      </div>
-      ${terms.map(t=>{
-        // Each term links to the slide in its deck where it's covered (best effort).
-        const href = deck
-          ? ('viewer.html?doc=' + deck + '&slide=' + ((typeof TERM_SLIDE!=='undefined' && TERM_SLIDE[t.a]) || 1))
-          : 'reference.html';
-        return `<div class="term">
-          <div class="term-top"><a class="term-name" href="${href}" target="_blank" rel="noopener"
-            title="Open the slide covering ${esc(t.a)}">${hl(t.a,q)}</a>
-            <span class="term-diff">${DIFF_LABEL[t.d]||''}</span></div>
-          <div class="term-clue">${hl(t.clue,q)}</div>
-          <div class="term-info">${hl(t.info,q)}</div>
-        </div>`;
-      }).join('')}`;
-    elGloss.appendChild(wrap);
-  });
-  if(shown===0) elGloss.innerHTML='<div class="no-results">No terms match “'+esc(q)+'”.</div>';
-  elCount.textContent = q ? `${shown} of ${TOTAL} terms match` : `${TOTAL} terms across ${SECTION_DEFS.length} sections`;
+  let pool=CERT_TERMS;
+  if(q) pool=pool.filter(t=> t.a.toLowerCase().includes(q) || t.clue.toLowerCase().includes(q) || t.info.toLowerCase().includes(q));
+  let html='', shown=0;
+
+  if(mode==='section'){
+    SECTION_DEFS.forEach(sec=>{
+      const terms=pool.filter(t=>SECTION_OF[t.a]===sec.id).sort((a,b)=>a.a.localeCompare(b.a));
+      if(!terms.length) return;
+      shown+=terms.length;
+      html+=groupHtml(sec.icon, sec.name, terms, q);
+    });
+  } else if(mode==='agency'){
+    AGENCY_DEFS.forEach(ag=>{
+      const terms=pool.filter(t=>AGENCY_OF[t.a]===ag.id).sort((a,b)=>a.a.localeCompare(b.a));
+      if(!terms.length) return;
+      shown+=terms.length;
+      html+=groupHtml(ag.icon, ag.name, terms, q);
+    });
+  } else {
+    // Alphabetical (default): one group per starting letter, A–Z.
+    const sorted=[...pool].sort((a,b)=>a.a.localeCompare(b.a));
+    shown=sorted.length;
+    let letter='', bucket=[];
+    const flush=()=>{ if(bucket.length){ html+=groupHtml(letter, `“${letter}”`, bucket, q); bucket=[]; } };
+    sorted.forEach(t=>{
+      const first=t.a.replace(/[^A-Za-z]/,'').charAt(0).toUpperCase() || '#';
+      if(first!==letter){ flush(); letter=first; }
+      bucket.push(t);
+    });
+    flush();
+  }
+
+  elGloss.innerHTML = shown ? html : '<div class="no-results">No terms match “'+esc(q)+'”.</div>';
+  const modeNote = mode==='section' ? `across ${SECTION_DEFS.length} sections`
+                  : mode==='agency' ? `across ${AGENCY_DEFS.length} agencies` : 'A–Z';
+  elCount.textContent = q ? `${shown} of ${TOTAL} terms match` : `${TOTAL} terms, ${modeNote}`;
 }
+
+elTabs.querySelectorAll('.view-tab').forEach(btn=>{
+  btn.classList.toggle('active', btn.dataset.mode===mode);
+  btn.addEventListener('click', ()=>{
+    mode=btn.dataset.mode;
+    elTabs.querySelectorAll('.view-tab').forEach(b=>b.classList.toggle('active', b===btn));
+    render(elSearch.value);
+  });
+});
 elSearch.addEventListener('input', ()=>render(elSearch.value));
 render('');
 

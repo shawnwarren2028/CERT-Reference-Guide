@@ -92,6 +92,29 @@ const CERT_TERMS = [
   {a:"LACERATION",  d:3, clue:"A jagged cut — the L in DCAP-BTLS.", info:"Control laceration bleeding with direct pressure."},
   {a:"QUADRANT",    d:3, clue:"Each colored section of the NFPA 704 diamond.", info:"NFPA 704 quadrants rate health, fire, reactivity, and special hazards."},
   {a:"CAPILLARY",   d:3, clue:"___ refill under 2 seconds shows good perfusion.", info:"Press a nail bed; capillary refill helps judge perfusion during START."},
+
+  // ── field reference & multi-agency expansion ──
+  // Terms with no `agency` field default to 'fema' (FEMA / CERT Basic Training).
+  // Terms with `srcHref` link to that page instead of a course slide, since
+  // they're not literally covered in a CERT deck even though grouped by topic.
+  {a:"CISA",           d:2, clue:"Cybersecurity and Infrastructure Security Agency (acronym).", info:"CISA publishes the active-shooter and infrastructure-security guidance in this guide's Field Reference.", agency:"cisa", srcHref:"companion.html"},
+  {a:"OSHA",           d:2, clue:"Occupational Safety and Health Administration (acronym).", info:"OSHA sets the workplace PPE and hazard-communication standards behind CERT's own PPE training.", agency:"osha", srcHref:"companion.html"},
+  {a:"USFA",           d:2, clue:"U.S. Fire Administration (acronym).", info:"USFA is the FEMA agency focused on fire prevention, including home escape-plan guidance.", agency:"usfa", srcHref:"companion.html"},
+  {a:"VOAD",           d:2, clue:"Voluntary Organizations Active in Disaster (acronym).", info:"National VOAD coordinates the volunteer groups — including CERT — that respond alongside professional agencies.", agency:"voad", srcHref:"companion.html"},
+  {a:"GDACS",          d:3, clue:"Global Disaster Alert and Coordination System (acronym).", info:"GDACS is a UN/EU-backed alert network that flags major disasters worldwide, usually within hours.", agency:"un", srcHref:"companion.html"},
+  {a:"NWS",            d:1, clue:"National Weather Service (acronym).", info:"The NWS issues the official watches and warnings behind every severe-weather alert.", agency:"noaa", srcHref:"companion.html"},
+  {a:"ANNEX",          d:2, clue:"A hazard-specific ___ extends CERT's core training.", info:"FEMA's CERT Hazard-Specific Annex covers hazards — like earthquakes or wildfires — beyond the eight core sections.", srcHref:"companion.html"},
+  {a:"RUN-HIDE-FIGHT", d:2, clue:"Run, hide, or ___ — the active-shooter response framework, in order of preference.", info:"Run if you can escape safely; hide if you can't; fight only as an absolute last resort.", agency:"cisa", srcHref:"companion.html"},
+  {a:"WATCH",          d:2, clue:"Weather alert meaning a hazard's conditions are possible.", info:"A watch means stay alert and get ready — the hazard hasn't started yet.", agency:"noaa", srcHref:"companion.html"},
+  {a:"WARNING",        d:2, clue:"Weather alert meaning a hazard is happening or about to.", info:"A warning is more urgent than a watch — take action now.", agency:"noaa", srcHref:"companion.html"},
+  {a:"LAHAR",          d:3, clue:"A volcanic mudflow of ash, rock, and water.", info:"A lahar can travel fast and far from a volcano — well beyond the area that looks at risk.", agency:"usgs", srcHref:"companion.html"},
+  {a:"SDS",            d:2, clue:"Safety Data Sheet (acronym).", info:"An SDS lists a chemical's hazards, handling, and first-aid measures.", agency:"osha", srcHref:"companion.html"},
+  {a:"GHS",            d:3, clue:"Globally Harmonized System (acronym) of hazard pictograms.", info:"GHS pictograms give hazardous materials a consistent look across labels worldwide.", agency:"osha", srcHref:"companion.html"},
+  {a:"FLASHOVER",      d:3, clue:"Sudden, simultaneous ignition of everything combustible in a room.", info:"Flashover is a lethal fire-growth stage — well beyond anything CERT should approach.", agency:"usfa", srcHref:"companion.html"},
+  {a:"GOBAG",          d:1, clue:"A portable, grab-and-run version of your emergency kit.", info:"Keep a go-bag by the door — it's your kit, ready to move with you.", agency:"redcross", srcHref:"companion.html"},
+  {a:"AT-RISK",        d:2, clue:"An ___ population may need extra help in a disaster.", info:"Age, disability, language, or medical needs can put someone at greater risk — plan outreach accordingly.", agency:"hhs", srcHref:"companion.html"},
+  {a:"SURGE CAPACITY", d:3, clue:"A hospital's ability to handle a sudden jump in patients.", info:"Knowing local surge capacity helps CERT and EMS understand where patients can actually go.", agency:"hhs", srcHref:"companion.html"},
+  {a:"ICS",            d:2, clue:"Incident Command System (acronym).", info:"ICS is the management structure CERT plugs into once professional responders arrive.", srcHref:"companion.html"},
 ];
 
 /* CERT sections (used for themed crossword mode + glossary grouping).
@@ -100,22 +123,43 @@ const SECTION_DEFS = [
   {id:'general', name:'Scene Basics & PPE',   icon:'🧭', ref:'reference.html',
     words:['SCENE','PPE','CERT','RADIO','SAFETY','DANGER','HAZARD','SIZEUP','BRIEFING','STAGING']},
   {id:'prep',    name:'Disaster Preparedness', icon:'🏠', ref:'section_01_unit_1_ppt_508.pptx',
-    words:['PLAN','KIT','WATER','MITIGATION','AFTERSHOCK','EVACUATION','SHELTER','ESCAPE']},
+    words:['PLAN','KIT','WATER','MITIGATION','AFTERSHOCK','EVACUATION','SHELTER','ESCAPE','GOBAG','AT-RISK']},
   {id:'fire',    name:'Fire Safety & Hazmat',  icon:'🔥', ref:'section_02_unit_2_ppt_508.pptx',
-    words:['FUEL','HEAT','OXYGEN','PASS','GAS','SMOKE','INCIPIENT','PORTABLE','FLAMMABLE','TRIANGLE','ELECTRIC','UTILITIES','DECON','IDLH','QUADRANT']},
+    words:['FUEL','HEAT','OXYGEN','PASS','GAS','SMOKE','INCIPIENT','PORTABLE','FLAMMABLE','TRIANGLE','ELECTRIC','UTILITIES','DECON','IDLH','QUADRANT','SDS','GHS','FLASHOVER']},
   {id:'medical', name:'Medical Operations',    icon:'🩺', ref:'section_03_unit_3_ppt_508.pptx',
-    words:['TRIAGE','SHOCK','AIRWAY','GLOVES','PULSE','WOUND','START','RPM','IMMEDIATE','DELAYED','MINOR','BLEEDING','PRESSURE','TOURNIQUET','PERFUSION','SPLINT','BANDAGE','DRESSING','FRACTURE','DOCUMENT','TRANSPORT','HYPOTHERMIA','ANAPHYLAXIS','CONTUSION','LACERATION','CAPILLARY','DOFF']},
+    words:['TRIAGE','SHOCK','AIRWAY','GLOVES','PULSE','WOUND','START','RPM','IMMEDIATE','DELAYED','MINOR','BLEEDING','PRESSURE','TOURNIQUET','PERFUSION','SPLINT','BANDAGE','DRESSING','FRACTURE','DOCUMENT','TRANSPORT','HYPOTHERMIA','ANAPHYLAXIS','CONTUSION','LACERATION','CAPILLARY','DOFF','SURGE CAPACITY']},
   {id:'sar',     name:'Light Search & Rescue', icon:'🔍', ref:'section_05_unit_5_ppt_508.pptx',
     words:['CRIBBING','LEVER','FULCRUM','VOID','RESCUE','DEBRIS','LEVERAGE','MARKING','HELMET']},
   {id:'ics',     name:'CERT Organization',     icon:'🗂️', ref:'section_06_unit_6_ppt_508.pptx',
-    words:['NIMS','COMMAND','LOGISTICS','SPAN','RESOURCES']},
+    words:['NIMS','COMMAND','LOGISTICS','SPAN','RESOURCES','ICS']},
   {id:'psych',   name:'Disaster Psychology',   icon:'🧠', ref:'section_07_unit_7_ppt_508.pptx',
     words:['REHAB','STRESS','BUDDY']},
   {id:'terror',  name:'Terrorism Awareness',   icon:'💥', ref:'section_08_unit_8_ppt_508.pptx',
     words:['CBRNE','SECONDARY','STANDOFF']},
+  {id:'fieldref', name:'Field Reference (Multi-Agency)', icon:'🌐', ref:'companion.html',
+    words:['CISA','OSHA','USFA','VOAD','GDACS','NWS','ANNEX','RUN-HIDE-FIGHT','WATCH','WARNING','LAHAR']},
 ];
 const SECTION_OF={}; SECTION_DEFS.forEach(s=>s.words.forEach(w=>SECTION_OF[w]=s.id));
 const SECTION_BY={}; SECTION_DEFS.forEach(s=>SECTION_BY[s.id]=s);
+
+/* Which agency/organization a term comes from — for the Glossary's "By Agency" filter.
+   A term with no explicit `agency` field defaults to 'fema' (the CERT Basic Training
+   curriculum itself is FEMA's). Only terms sourced from the multi-agency Field Reference
+   material carry an explicit agency. */
+const AGENCY_DEFS = [
+  {id:'fema',     name:'FEMA / CERT Basic Training',            icon:'🏷️'},
+  {id:'cisa',     name:'CISA (Dept. of Homeland Security)',     icon:'🚨'},
+  {id:'osha',     name:'OSHA',                                  icon:'🦺'},
+  {id:'usfa',     name:'U.S. Fire Administration',              icon:'🚒'},
+  {id:'noaa',     name:'NOAA / National Weather Service',       icon:'⛈️'},
+  {id:'hhs',      name:'U.S. Health & Human Services',          icon:'🏥'},
+  {id:'redcross', name:'American Red Cross / Ready.gov',        icon:'➕'},
+  {id:'voad',     name:'National VOAD',                         icon:'🤝'},
+  {id:'un',       name:'United Nations / GDACS',                icon:'🌐'},
+  {id:'usgs',     name:'USGS',                                  icon:'🌋'},
+];
+const AGENCY_OF={}; CERT_TERMS.forEach(t=>AGENCY_OF[t.a]=t.agency||'fema');
+const AGENCY_BY={}; AGENCY_DEFS.forEach(a=>AGENCY_BY[a.id]=a);
 
 /* Best-effort term → slide (PDF page) for the glossary deep-links: the first
    slide in that term's section deck whose text mentions the term verbatim.

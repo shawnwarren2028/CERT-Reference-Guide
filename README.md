@@ -7,8 +7,11 @@ Free to run, no install, works on any device.
 
 ## What's inside
 
-- **CERT Glossary** — a searchable reference of 80+ key CERT terms, grouped
-  by section with definitions and quick study notes.
+- **CERT Glossary** — a searchable reference of 98 terms (80 from CERT Basic Training plus 18
+  from the multi-agency Field Reference material), with definitions and quick study notes.
+  Switch how the list is organized: alphabetically (default), by course section, or by the
+  agency each term comes from (FEMA, CISA, OSHA, NOAA/NWS, USFA, HHS, Red Cross, VOAD,
+  UN/GDACS, USGS).
 - **Course Materials** — the official CERT Basic Training presentations for
   Sections 1–8 (disaster prep, fire safety, medical ops, search & rescue,
   CERT organization, disaster psychology, and terrorism/CERT), each available
@@ -48,7 +51,8 @@ it isn't ours to redistribute.
 
 - Static HTML/CSS/JS, no framework, no build step, no third-party runtime dependencies.
 - **Shared modules** — `theme.js` (light/dark theme, icons, accessibility base),
-  `cert-terms.js` (glossary term data), `reference-sections.js` (course section list),
+  `cert-terms.js` (glossary term data, section taxonomy, and agency taxonomy),
+  `reference-sections.js` (course section list),
   `data/diagrams.js` (Visual Aids content + the `diagramMediaHtml()` renderer shared by
   `diagrams.html`, `diagram.html`, and `transcript.html`'s inline embeds), `data/field-references.js`
   (multi-agency link cards rendered by `companion.html`, categorized and optionally tagged with
