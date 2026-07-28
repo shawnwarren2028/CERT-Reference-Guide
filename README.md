@@ -20,7 +20,11 @@ Free to run, no install, works on any device.
 - **Changelog** — what's changed on the site, plus a per-section note of when
   each course PDF's source file was prepared.
 - **Field Reference** — the official FEMA CERT Basic Training Participant Manual (2019,
-  Section 508), the full narrative text behind the course decks.
+  Section 508), the full narrative text behind the course decks, plus a curated set of
+  multi-agency links (FEMA, Ready.gov, NOAA/NWS, CISA, OSHA, U.S. Fire Administration,
+  American Red Cross) covering hazard-specific guides, security, worker safety, fire
+  safety, incident command, and family preparedness — every card links out to the source
+  agency's own site rather than being hosted here.
 - **Visual Aids** — 9 original diagrams and animations for concepts that are easier to show than
   describe: the fire triangle, structural collapse voids, each of the 5 classes of fire (modeled
   and animated individually — its own burning material, its own correct extinguishing agent, and
@@ -39,7 +43,9 @@ it isn't ours to redistribute.
 - **Shared modules** — `theme.js` (light/dark theme, icons, accessibility base),
   `cert-terms.js` (glossary term data), `reference-sections.js` (course section list),
   `data/diagrams.js` (Visual Aids content + the `diagramMediaHtml()` renderer shared by
-  `diagrams.html`, `diagram.html`, and `transcript.html`'s inline embeds).
+  `diagrams.html`, `diagram.html`, and `transcript.html`'s inline embeds), `data/field-references.js`
+  (multi-agency link cards rendered by `companion.html`, categorized and optionally tagged with
+  the CERT course section they complement).
 - **Search + transcripts** run entirely client-side against `data/deck-text.js`, a
   precomputed extract of every slide's text. It's generated once (not at page-load) by
   `scripts/extract-decks.py` — re-run it after replacing any section PDF:
@@ -73,7 +79,7 @@ viewer.html                             In-site deck viewer (PDF, with Office fa
 search.html                             Site-wide search (glossary + all decks)
 transcript.html                         Slide-by-slide text transcript for a section
 changelog.html                          Site changelog + per-section source-file dates
-companion.html                          FEMA companion documents (Participant Manual, etc.)
+companion.html                          FEMA companion documents + multi-agency field-reference links
 cert-participant-manual-2019.pdf        FEMA CERT Basic Training Participant Manual (2019, 508)
 diagrams.html                           Visual Aids gallery (compact cards, links to diagram.html)
 diagram.html                            Diagram detail page (media, full info, sources, matching slide)
@@ -89,6 +95,7 @@ CERT BASIC TRAINING FINAL EXAM ANSWER KEY.docx
 scripts/extract-decks.py                Precomputes data/deck-text.js from the PDFs
 data/deck-text.js                       Generated per-slide text + metadata (search + transcripts)
 data/diagrams.js                        Visual Aids content (shared by diagrams.html + transcript.html)
+data/field-references.js                Multi-agency field-reference links (shared by companion.html)
 ```
 
 ## Data & privacy

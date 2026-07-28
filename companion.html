@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
 <script src="theme.js"></script>
+<script src="reference-sections.js"></script>
+<script src="data/field-references.js"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Wallingford CERT — Field Reference</title>
@@ -60,7 +62,14 @@
   .rc-mid{flex:1;min-width:0;}
   .file-name{font-size:0.98rem;font-weight:700;color:var(--primary);}
   .file-type{font-size:0.74rem;color:var(--text-muted);margin-top:2px;}
-  .rc-dl{display:flex;gap:6px;flex-shrink:0;}
+  .file-desc{font-size:0.82rem;color:var(--text);opacity:.85;margin-top:6px;line-height:1.45;}
+  .section-tag{display:inline-block;margin-top:7px;font-size:0.7rem;font-weight:700;color:var(--primary-light);
+    background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:2px 8px;text-decoration:none;}
+  .section-tag:hover{border-color:var(--primary);}
+  .rc-dl{display:flex;gap:6px;flex-shrink:0;align-self:flex-start;}
+  .category-block{margin-top:30px;}
+  .category-block h3{font-size:1.05rem;font-weight:800;margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+  .category-block .resource-card{align-items:flex-start;}
   .rc-btn{display:inline-flex;align-items:center;gap:4px;background:var(--surface2);border:1px solid var(--border);
     color:var(--primary-light);text-decoration:none;font-size:0.72rem;font-weight:700;padding:5px 9px;
     border-radius:7px;white-space:nowrap;transition:background .15s,border-color .15s;}
@@ -124,13 +133,75 @@
     </a>
   </div>
 
+  <div id="field-ref-categories"></div>
+
   <div class="placeholder-note">
-    More FEMA companion material (hazard-specific annexes, etc.) may be added here later.
-    A CERT Field Operations Guide is <strong>not</strong> included — the versions in wide
-    circulation are a copyrighted commercial product (QuickSeries Publishing), not a FEMA
-    public-domain work, so it isn't ours to redistribute here.
+    The sections above link out to official material from FEMA, NOAA, CISA, OSHA, the U.S. Fire
+    Administration, and the American Red Cross. Each is maintained by its own agency — nothing
+    there is hosted or reproduced here, so always treat the source site as current. A CERT Field
+    Operations Guide is <strong>not</strong> included — the versions in wide circulation are a
+    copyrighted commercial product (QuickSeries Publishing), not a FEMA public-domain work, so
+    it isn't ours to redistribute here.
   </div>
 </main>
+
+<script>
+(function () {
+  const container = document.getElementById('field-ref-categories');
+  if (!container || typeof FIELD_REF_CATEGORIES === 'undefined' || typeof FIELD_REFERENCES === 'undefined') return;
+
+  const sectionById = {};
+  if (typeof REF_SECTIONS !== 'undefined') {
+    REF_SECTIONS.forEach(s => { sectionById[s.n] = s; });
+  }
+
+  FIELD_REF_CATEGORIES.forEach(cat => {
+    const items = FIELD_REFERENCES.filter(r => r.category === cat.id);
+    if (!items.length) return;
+
+    const block = document.createElement('div');
+    block.className = 'category-block';
+
+    const heading = document.createElement('h3');
+    heading.innerHTML = `<span>${cat.icon}</span> ${cat.label}`;
+    block.appendChild(heading);
+
+    const grid = document.createElement('div');
+    grid.className = 'resource-grid';
+
+    items.forEach(ref => {
+      const card = document.createElement('a');
+      card.className = 'resource-card';
+      card.href = ref.url;
+      card.target = '_blank';
+      card.rel = 'noopener';
+      card.title = `Visit: ${ref.title}`;
+
+      const sec = ref.relatedSection ? sectionById[ref.relatedSection] : null;
+      const secTag = sec
+        ? `<a class="section-tag" href="viewer.html?doc=${encodeURIComponent(sec.base)}" onclick="event.stopPropagation()">↳ Complements Section ${sec.n} — ${sec.name}</a>`
+        : '';
+      const btnLabel = ref.linkType === 'pdf' ? '⭳ PDF' : '🔗 Visit';
+
+      card.innerHTML = `
+        <span class="file-icon">${ref.icon}</span>
+        <div class="rc-mid">
+          <div class="file-name">${ref.title}</div>
+          <div class="file-type">${ref.agency}</div>
+          <div class="file-desc">${ref.description}</div>
+          ${secTag}
+        </div>
+        <div class="rc-dl">
+          <a class="rc-btn" href="${ref.url}" target="_blank" rel="noopener" onclick="event.stopPropagation()">${btnLabel}</a>
+        </div>`;
+      grid.appendChild(card);
+    });
+
+    block.appendChild(grid);
+    container.appendChild(block);
+  });
+})();
+</script>
 
 <footer>
   <span style="color:var(--primary)">Wallingford CERT</span> — Reference Guide · Field Reference · For educational use — follow your local CERT program guidelines. ·
