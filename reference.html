@@ -55,22 +55,22 @@
   .page-hero p{font-size:0.92rem;color:var(--text-muted);line-height:1.55;max-width:640px;}
 
   .resource-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px;}
-  .resource-card{display:flex;align-items:center;gap:14px;background:var(--surface);
+  .resource-card{display:flex;flex-direction:column;gap:12px;background:var(--surface);
     border:1px solid var(--border);border-radius:var(--radius);padding:16px 18px;
     text-decoration:none;color:inherit;cursor:pointer;transition:transform .15s,border-color .15s,box-shadow .15s;}
   .resource-card:hover{transform:translateY(-3px);border-color:var(--primary);
     box-shadow:0 10px 22px rgba(0,0,0,.4);}
+  .rc-top{display:flex;align-items:center;gap:14px;}
   .file-icon{font-size:2rem;line-height:1;flex-shrink:0;}
   .rc-mid{flex:1;min-width:0;}
   .file-name{font-size:0.98rem;font-weight:700;color:var(--primary);}
   .file-type{font-size:0.74rem;color:var(--text-muted);margin-top:2px;}
-  .rc-dl{display:flex;gap:6px;flex-shrink:0;}
+  .open-arrow{opacity:.5;font-size:0.85rem;flex-shrink:0;}
+  .rc-dl{display:flex;gap:6px;flex-wrap:wrap;}
   .rc-btn{display:inline-flex;align-items:center;gap:4px;background:var(--surface2);border:1px solid var(--border);
     color:var(--primary-light);text-decoration:none;font-size:0.72rem;font-weight:700;padding:5px 9px;
     border-radius:7px;white-space:nowrap;transition:background .15s,border-color .15s;}
   .rc-btn:hover{border-color:var(--primary);background:var(--border);}
-  @media (max-width:600px){ .open-arrow{display:none;} }
-  .open-arrow{margin-left:auto;opacity:.5;font-size:0.85rem;}
 
   footer{text-align:center;padding:20px;color:var(--text-muted);font-size:0.76rem;
     border-top:1px solid var(--border);}
@@ -113,10 +113,24 @@
 <main>
   <div class="page-hero">
     <h2>📄 Course <span>Reference</span> Materials</h2>
-    <p>The official CERT Basic Training presentation decks. Click a section to view it right here
-       on the site, or grab it as a PDF or PowerPoint with the download buttons.</p>
+    <p>The official CERT Basic Training presentation decks, plus the full Participant Manual.
+       Click a section to view it right here on the site, or grab it as a PDF or PowerPoint
+       with the download buttons.</p>
   </div>
-  <div class="resource-grid" id="resource-grid"></div>
+  <div class="resource-grid" id="resource-grid">
+    <div class="resource-card" onclick="window.open('cert-participant-manual-2019.pdf','_blank')" title="Open the Participant Manual">
+      <div class="rc-top">
+        <span class="file-icon">📘</span>
+        <div class="rc-mid">
+          <div class="file-name">CERT Basic Training Participant Manual</div>
+          <div class="file-type">FEMA · 2019 edition, Section 508 · 268 pages</div>
+        </div>
+      </div>
+      <div class="rc-dl">
+        <a class="rc-btn" href="cert-participant-manual-2019.pdf" download title="Download the Participant Manual (PDF)" onclick="event.stopPropagation()">⭳ PDF</a>
+      </div>
+    </div>
+  </div>
 </main>
 
 <footer>
@@ -133,17 +147,19 @@ REF_SECTIONS.forEach(r => {
   card.title = 'View ' + r.name;
   card.onclick = () => location.href = 'viewer.html?doc=' + r.base;
   card.innerHTML = `
-    <span class="file-icon">${r.icon}</span>
-    <div class="rc-mid">
-      <div class="file-name">${r.name}</div>
-      <div class="file-type">Section ${r.n} · View presentation</div>
+    <div class="rc-top">
+      <span class="file-icon">${r.icon}</span>
+      <div class="rc-mid">
+        <div class="file-name">${r.name}</div>
+        <div class="file-type">Section ${r.n} · View presentation</div>
+      </div>
+      <span class="open-arrow" aria-hidden="true">→</span>
     </div>
     <div class="rc-dl">
       <a class="rc-btn" href="transcript.html?doc=${r.base}" title="Read the text transcript of ${r.name}">📝 Transcript</a>
       <a class="rc-btn" href="${r.base}.pdf" download title="Download ${r.name} (PDF)">⭳ PDF</a>
       <a class="rc-btn" href="${r.base}.pptx" download title="Download ${r.name} (PowerPoint)">⭳ PPTX</a>
-    </div>
-    <span class="open-arrow" aria-hidden="true">→</span>`;
+    </div>`;
   // download links shouldn't also trigger the card's view action
   card.querySelectorAll('.rc-dl a').forEach(a => a.addEventListener('click', e => e.stopPropagation()));
   grid.appendChild(card);

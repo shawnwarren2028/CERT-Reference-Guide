@@ -12,21 +12,21 @@ Free to run, no install, works on any device.
 - **Course Materials** — the official CERT Basic Training presentations for
   Sections 1–8 (disaster prep, fire safety, medical ops, search & rescue,
   CERT organization, disaster psychology, and terrorism/CERT), each available
-  as PDF and PowerPoint, with an in-site viewer.
+  as PDF and PowerPoint, with an in-site viewer, plus the full 268-page
+  Participant Manual as its own card.
 - **Search Everything** — one search box across the glossary and every slide
   in all 8 course decks, linking straight to the matching slide or transcript.
 - **Transcripts** — an auto-generated, slide-by-slide text transcript of each
   section, for fast skimming, in-page search, and screen readers.
 - **Changelog** — what's changed on the site, plus a per-section note of when
   each course PDF's source file was prepared.
-- **Field Reference** — the official FEMA CERT Basic Training Participant Manual (2019,
-  Section 508), the full narrative text behind the course decks, plus a curated set of
-  ~30 multi-agency links (FEMA, Ready.gov, NOAA/NWS, USGS, CISA, OSHA, U.S. Fire
-  Administration, American Red Cross, HHS, Census Bureau, GDACS, and more) across seven
-  categories — hazard-specific guides (including live monitors like earthquake/hurricane/
-  wildfire trackers), live situational awareness & local conditions, security, worker
-  safety, fire & utility safety, incident command, and family preparedness. Every card
-  links out to the source's own site rather than being hosted here.
+- **Field Reference** — a curated set of ~30 multi-agency links (FEMA, Ready.gov,
+  NOAA/NWS, USGS, CISA, OSHA, U.S. Fire Administration, American Red Cross, HHS, Census
+  Bureau, GDACS, and more) across seven categories — hazard-specific guides (including
+  live monitors like earthquake/hurricane/wildfire trackers), live situational awareness
+  & local conditions, security, worker safety, fire & utility safety, incident command,
+  and family preparedness. Every card links out to the source's own site rather than
+  being hosted here. (The Participant Manual itself now lives under Course Materials.)
 - **Visual Aids** — 9 original diagrams and animations for concepts that are easier to show than
   describe: the fire triangle, structural collapse voids, each of the 5 classes of fire (modeled
   and animated individually — its own burning material, its own correct extinguishing agent, and
@@ -76,13 +76,13 @@ Then open <http://localhost:3000>.
 ```
 index.html                              Reference Guide hub
 glossary.html                           Searchable term glossary
-reference.html                          Course Materials index
+reference.html                          Course Materials index (Participant Manual + 8 section decks)
 viewer.html                             In-site deck viewer (PDF, with Office fallback)
 search.html                             Site-wide search (glossary + all decks)
 transcript.html                         Slide-by-slide text transcript for a section
 changelog.html                          Site changelog + per-section source-file dates
-companion.html                          FEMA companion documents + multi-agency field-reference links
-cert-participant-manual-2019.pdf        FEMA CERT Basic Training Participant Manual (2019, 508)
+companion.html                          Multi-agency field-reference links
+cert-participant-manual-2019.pdf        FEMA CERT Basic Training Participant Manual (2019, 508) — linked from reference.html
 diagrams.html                           Visual Aids gallery (compact cards, links to diagram.html)
 diagram.html                            Diagram detail page (media, full info, sources, matching slide)
 images/                                 Static diagram images (Canva)

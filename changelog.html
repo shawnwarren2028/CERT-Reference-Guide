@@ -91,6 +91,22 @@
   <div id="site-log">
     <div class="entry">
       <div class="entry-date">2026-07-26</div>
+      <div class="entry-body">Moved the <strong>CERT Basic Training Participant Manual</strong>
+        from Field Reference to <strong>Course Materials</strong>, where it now sits as the
+        first card above the 8 section decks. Also reformatted every Course Materials tile:
+        title and description now sit on top, with the action buttons (Transcript/PDF/PPTX) in
+        their own row underneath, fixing a layout bug where long section titles collided with
+        the button row on narrower cards. Along the way, found and fixed an actual HTML bug in
+        the manual card: it was written as an <code>&lt;a&gt;</code> tag wrapping another
+        <code>&lt;a&gt;</code> download button, which is invalid — real browsers silently split
+        it into a working card plus a second, empty, broken duplicate. Replaced with a
+        <code>&lt;div&gt;</code> card (matching the pattern already used for the 8 section
+        cards) instead. Field Reference's intro text and the home page's cards were both updated
+        to reflect the move.
+      </div>
+    </div>
+    <div class="entry">
+      <div class="entry-date">2026-07-26</div>
       <div class="entry-body">Added 21 more multi-agency links to the <strong>Field Reference</strong>
         page, curated from a review of a much larger public situational-awareness link list
         (vinalcjps.com). Folded live hazard-monitoring tools into the existing categories rather
