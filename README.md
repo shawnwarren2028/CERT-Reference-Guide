@@ -7,11 +7,12 @@ Free to run, no install, works on any device.
 
 ## What's inside
 
-- **CERT Glossary** — a searchable reference of 98 terms (80 from CERT Basic Training plus 18
-  from the multi-agency Field Reference material), with definitions and quick study notes.
+- **CERT Glossary** — a searchable reference of 208 terms: 80 from CERT Basic Training, 102
+  more covering DCAP-BTLS/SAMPLE/OPQRST/AVPU/GCS, ICS roles, hazmat zones, named hazards, and
+  other multi-agency Field Reference material, plus the full 26-letter NATO phonetic alphabet.
   Switch how the list is organized: alphabetically (default), by course section, or by the
   agency each term comes from (FEMA, CISA, OSHA, NOAA/NWS, USFA, HHS, Red Cross, VOAD,
-  UN/GDACS, USGS).
+  UN/GDACS, USGS, ICAO).
 - **Course Materials** — the official CERT Basic Training presentations for
   Sections 1–8 (disaster prep, fire safety, medical ops, search & rescue,
   CERT organization, disaster psychology, and terrorism/CERT), each available
