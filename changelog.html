@@ -91,244 +91,28 @@
   <div id="site-log">
     <div class="entry">
       <div class="entry-date">2026-07-28</div>
-      <div class="entry-body">Expanded the <strong>Glossary</strong> from 98 to <strong>208 terms</strong>
-        (verified zero duplicates) — added the full 26-letter <strong>NATO phonetic alphabet</strong>
-        as a new section/agency ("ICAO / International Radio Alphabet"), plus 84 more terms filling
-        out existing sections:
+      <div class="entry-body">
         <ul>
-          <li><strong>Medical Operations</strong> (+24) — the rest of DCAP-BTLS (Deformity,
-            Abrasion, Puncture, Burn, Tenderness, Swelling), SAMPLE, OPQRST, AVPU, and GCS spelled
-            out letter-by-letter, plus CPR/AED/Heimlich and burn classifications</li>
-          <li><strong>Fire Safety & Hazmat</strong> (+8) — Backdraft, Ignition, Extinguisher, and
-            Classes A/B/C/D/K each linking to their matching Visual Aid animation</li>
-          <li><strong>Light Search & Rescue</strong> (+8) — Pancake/Lean-to/V-Void (linking to the
-            Structural Collapse Voids diagram), Hasty/Interior/Exterior Search, Tagging, Shoring</li>
-          <li><strong>CERT Organization</strong> (+8) — the remaining ICS sections (Operations,
-            Planning, Finance) and command-staff roles (Safety Officer, Liaison Officer, Unified
-            Command, Incident Commander, Demobilization)</li>
-          <li><strong>Scene Basics & PPE</strong> (+8), <strong>Disaster Preparedness</strong> (+7),
-            <strong>Disaster Psychology</strong> (+5), <strong>Terrorism Awareness</strong> (+4),
-            and <strong>Field Reference</strong> (+12, including Earthquake, Tsunami, Hurricane,
-            Tornado, Wildfire, Flood, and Pandemic tying into the new Field Reference hazard guides)
-          </li>
-        </ul>
-      </div>
-    </div>
-    <div class="entry">
-      <div class="entry-date">2026-07-28</div>
-      <div class="entry-body">Added 18 new <strong>Glossary</strong> terms drawn from the
-        multi-agency Field Reference material (CISA, OSHA, USFA, VOAD, GDACS, NWS, and more —
-        including RUN-HIDE-FIGHT, WATCH vs. WARNING, SDS, GHS, FLASHOVER, GO-BAG, AT-RISK,
-        SURGE CAPACITY, and ICS), bringing the glossary to 98 terms. Added a filter so the list
-        can be viewed three ways:
-        <ul>
-          <li><strong>Alphabetical</strong> (new default) — grouped by first letter, A–Z</li>
-          <li><strong>By Section</strong> — the existing course-section grouping, now with a
-            ninth group, "Field Reference (Multi-Agency)," for terms that aren't tied to a
-            specific course slide</li>
-          <li><strong>By Agency</strong> (new) — grouped by which agency the term comes from;
-            most of the original 80 terms default to "FEMA / CERT Basic Training"</li>
-        </ul>
-        Terms sourced from Field Reference material link to <code>companion.html</code> instead
-        of a course slide, since they aren't literally covered in a CERT deck even when grouped
-        under an existing section like Fire Safety.
-      </div>
-    </div>
-    <div class="entry">
-      <div class="entry-date">2026-07-28</div>
-      <div class="entry-body">Moved the site search box to the <strong>home page</strong> (submits to
-        <code>search.html?q=</code>, which already supported that deep link) and removed the
-        separate "Search Everything" card from the hub grid. Also reorganized the
-        <strong>Visual Aids</strong> gallery to group diagrams under a heading per section instead
-        of one long flat grid, and added 4 new diagrams built in Canva that summarize the new
-        multi-agency Field Reference material rather than a specific course slide:
-        <ul>
-          <li><strong>Know Your Hazards</strong> — six hazard types from FEMA's CERT Hazard-Specific Annex</li>
-          <li><strong>Run. Hide. Fight.</strong> — the CISA/DHS active-threat response framework</li>
-          <li><strong>Home Fire Escape Plan</strong> — the U.S. Fire Administration's three household basics</li>
-          <li><strong>Build a Kit. Make a Plan. Stay Informed.</strong> — Ready.gov/Red Cross's household-preparedness framework</li>
-        </ul>
-        Along the way, several early Canva generations for these came back with fabricated
-        statistics, invented quotes, or icons swapped onto the wrong label — all rejected;
-        cutting each poster down to 3–6 items (instead of 9) got clean, correctly-labeled results.
-      </div>
-    </div>
-    <div class="entry">
-      <div class="entry-date">2026-07-26</div>
-      <div class="entry-body">Moved the <strong>CERT Basic Training Participant Manual</strong>
-        from Field Reference to <strong>Course Materials</strong>, where it now sits as the
-        first card above the 8 section decks. Also reformatted every Course Materials tile:
-        title and description now sit on top, with the action buttons (Transcript/PDF/PPTX) in
-        their own row underneath, fixing a layout bug where long section titles collided with
-        the button row on narrower cards. Along the way, found and fixed an actual HTML bug in
-        the manual card: it was written as an <code>&lt;a&gt;</code> tag wrapping another
-        <code>&lt;a&gt;</code> download button, which is invalid — real browsers silently split
-        it into a working card plus a second, empty, broken duplicate. Replaced with a
-        <code>&lt;div&gt;</code> card (matching the pattern already used for the 8 section
-        cards) instead. Field Reference's intro text and the home page's cards were both updated
-        to reflect the move.
-      </div>
-    </div>
-    <div class="entry">
-      <div class="entry-date">2026-07-26</div>
-      <div class="entry-body">Added 21 more multi-agency links to the <strong>Field Reference</strong>
-        page, curated from a review of a much larger public situational-awareness link list
-        (vinalcjps.com). Folded live hazard-monitoring tools into the existing categories rather
-        than mirroring the source's own category names, and added one new category:
-        <ul>
-          <li><strong>Hazard-Specific Guides</strong> — live monitors: USGS Earthquake Tracker,
-            Tsunami Warning System, National Hurricane Center, live NWS radar, InciWeb, AirNow's
-            Fire and Smoke Map, FEMA's Flood Map Service Center, USGS Volcano Hazards and
-            Landslide Inventory, NOAA Space Weather, GDACS, and an NRC nuclear-facility finder</li>
-          <li><strong>Fire & Utility Safety</strong> — PowerOutage.US</li>
-          <li><strong>Incident Command & Coordination</strong> — National VOAD and the Census
-            Bureau's OnTheMap for Emergency Management</li>
-          <li>New category, <strong>Live Situational Awareness & Local Conditions</strong> —
-            CTRoads (Connecticut traffic), Waze, DownDetector, Broadcastify (live public-safety
-            radio), HHS Hospital Utilization, and the HHS emPOWER Map (power-dependent Medicare
-            beneficiaries by area)</li>
-        </ul>
-        Deliberately left out: crime/OSINT/conflict-tracking tools, a WiFi-wardriving map,
-        aviation/marine spotting sites, and general news/trade sites — out of scope for a
-        community CERT volunteer guide. Two source URLs had moved since the original list was
-        published (InciWeb, HHS emPOWER Map) — updated to their current redirect targets.
-      </div>
-    </div>
-    <div class="entry">
-      <div class="entry-date">2026-07-26</div>
-      <div class="entry-body">Expanded the <strong>Field Reference</strong> page with a new
-        <em>multi-agency</em> section — curated links to official, non-CERT-specific material
-        that complements the course, organized into six categories:
-        <ul>
-          <li><strong>Hazard-Specific Guides</strong> — FEMA's CERT Hazard-Specific Annex,
-            Ready.gov's per-hazard Information Sheets, and NOAA/NWS's Weather Safety Hub</li>
-          <li><strong>Security & Active Threats</strong> — CISA's Active Shooter Preparedness
-            pocket card and action guide</li>
-          <li><strong>Worker & Rescuer Safety</strong> — OSHA's worker-safety publications and
-            QuickCards (PPE, hazard communication)</li>
-          <li><strong>Fire & Utility Safety</strong> — the U.S. Fire Administration's home fire
-            escape plan guidance</li>
-          <li><strong>Incident Command & Coordination</strong> — FEMA's free IS-315.a course on
-            how CERT integrates with the Incident Command System</li>
-          <li><strong>Family & Community Preparedness</strong> — the American Red Cross's
-            household preparedness checklists</li>
-        </ul>
-        Every card links out to the source agency's own site (<code>data/field-references.js</code>)
-        — nothing is hosted or reproduced here, and cards tagged "Complements Section N" jump
-        straight to the related course section.
-      </div>
-    </div>
-    <div class="entry">
-      <div class="entry-date">2026-07-26</div>
-      <div class="entry-body">Fixed rendering issues on <strong>CERT Team Command Structure</strong>
-        and <strong>Phases of a Crisis</strong> and gave both another pass:
-        <ul>
-          <li>Removed the camera swing entirely on both (now static) and removed the floor
-            plane that was showing as a stray dark bar at the bottom of frame</li>
-          <li>Org chart: box labels now auto-fit and center inside their box instead of
-            overflowing the edges; connecting lines now grow into place top-to-bottom with the
-            signal pulse riding the growing tip, instead of being static from frame one</li>
-          <li>Phases of a Crisis: redesigned from a radial hub layout to a square cycle with
-            big directional arrows (Impact → Inventory → Rescue → Recovery → back to Impact) —
-            same real CERT content (Section 7, slide 12), clearer at a glance; the traveling
-            dot now moves noticeably slower between stages</li>
+          <li>Expanded the <strong>Glossary</strong> from 80 to <strong>208 terms</strong> — added the full NATO phonetic alphabet, 18 terms from the multi-agency Field Reference material, and more across every course section</li>
+          <li>Added a filter to browse the Glossary <strong>alphabetically, by section, or by source agency</strong></li>
+          <li>Moved site search to the <strong>home page</strong> and reorganized <strong>Visual Aids</strong> by section, adding 4 new diagrams on multi-agency preparedness topics (hazard types, Run-Hide-Fight, home fire escape planning, and building a kit)</li>
         </ul>
       </div>
     </div>
     <div class="entry">
       <div class="entry-date">2026-07-26</div>
-      <div class="entry-body">Gave <strong>CERT Team Command Structure</strong> and
-        <strong>Phases of a Crisis</strong> the same movement/detail pass as the fire-class
-        animations: both now have a traveling glowing signal pulse running along the connecting
-        lines as each node/phase activates, and a gentle camera swing. Along the way, fixed a
-        real bug: both had originally used a full 360° camera orbit, which spent half the loop
-        staring at the *back* of the flat text labels — Blender's curve-based text only renders
-        correctly from the front, so labels turned blank or mirrored for half the animation.
-        Replaced with a narrow front-facing swing that keeps every label readable throughout.
-        Also backfilled <code>assets/blender/fire-class-a.blend</code>, which was missed in the
-        previous round.
-      </div>
-    </div>
-    <div class="entry">
-      <div class="entry-date">2026-07-26</div>
-      <div class="entry-body">Replaced the single "5 Classes of Fire" animation with five separate,
-        fully modeled scenes — one per class, each with its own burning material and the correct
-        extinguishing agent:
+      <div class="entry-body">
         <ul>
-          <li><strong>Class A</strong> (wood) — water/foam stream</li>
-          <li><strong>Class B</strong> (liquid pool fire) — dry-chemical powder cloud</li>
-          <li><strong>Class C</strong> (electrical panel, sparking) — CO2 gas mist, distinct
-            horn-nozzle extinguisher</li>
-          <li><strong>Class D</strong> (magnesium shavings, white-hot flame) — specialized dry
-            powder, poured on rather than sprayed, yellow canister</li>
-          <li><strong>Class K</strong> (frying-pan grease fire) — wet-chemical mist forming a
-            foam blanket over the pan</li>
-        </ul>
-        Each scene has a flickering modeled flame (not a flat glow), rising smoke, and a slowly
-        orbiting camera. A course slide can now carry more than one Visual Aid (all five fire
-        classes point to the same slide), and the transcript embed and course-viewer's diagram
-        button both handle that correctly.
-      </div>
-    </div>
-    <div class="entry">
-      <div class="entry-date">2026-07-26</div>
-      <div class="entry-body">Reworked Visual Aids navigation and added three animated diagrams:
-        <ul>
-          <li>Each diagram now has its own detail page (<code>diagram.html</code>) with the full
-            image or video, complete description, clickable source links, and the exact course
-            slide it illustrates — one destination instead of bouncing between pages</li>
-          <li>A persistent <strong>🖼 Visual Aids</strong> button was added to the transcript and
-            course-viewer headers</li>
-          <li>Three new animated diagrams, modeled and rendered in Blender: <em>The 5 Classes of
-            Fire</em>, <em>CERT Team Command Structure</em>, and <em>Phases of a Crisis</em> —
-            looping, muted, autoplaying video that pauses for visitors with "reduce motion" set</li>
-          <li>Note: "Phases of a Crisis" (Impact → Inventory → Rescue → Recovery) replaces the
-            originally-planned "FEMA Disaster Phases" — that 4-phase cycle isn't actually taught
-            in this course; this is what Section 7 covers instead</li>
-        </ul>
-      </div>
-    </div>
-    <div class="entry">
-      <div class="entry-date">2026-07-26</div>
-      <div class="entry-body">Fixed a bug where <strong>Search</strong>, <strong>Transcripts</strong>,
-        and the <strong>Changelog</strong>'s source-date table could fail to load ("Couldn't load
-        the transcript data") — they used to <code>fetch()</code> a local JSON file, which browsers
-        block when a page is opened directly instead of through a server. Switched to a plain
-        <code>&lt;script src&gt;</code> data file instead, the same approach the glossary already used.
-        Also redid both Visual Aids diagrams with more color and detail, and reworked the gallery
-        cards: fuller descriptions, a plain-text source citation, and a dedicated button per card
-        instead of a whole-card link.
-      </div>
-    </div>
-    <div class="entry">
-      <div class="entry-date">2026-07-26</div>
-      <div class="entry-body">Added a <strong>Visual Aids</strong> gallery with the first two
-        original diagrams: <em>The Fire Triangle</em> (built with Canva) and
-        <em>Structural Collapse Voids</em> (modeled in Blender). Both are also embedded inline
-        in their matching section transcript. More diagrams to come.
-      </div>
-    </div>
-    <div class="entry">
-      <div class="entry-date">2026-07-26</div>
-      <div class="entry-body">Added the <strong>Field Reference</strong> page with the official
-        FEMA CERT Basic Training Participant Manual (2019, Section 508, 268 pages). A CERT
-        Field Operations Guide was considered but skipped — the versions in circulation are a
-        copyrighted commercial product (QuickSeries Publishing), not a FEMA public-domain work.
-      </div>
-    </div>
-    <div class="entry">
-      <div class="entry-date">2026-07-26</div>
-      <div class="entry-body">Added the reference-guide framework:
-        <ul>
-          <li><strong>Search Everything</strong> — one search box across the glossary and all 8 course decks</li>
-          <li><strong>Transcripts</strong> — text transcript of every slide, for skimming and screen readers</li>
-          <li>This changelog</li>
+          <li>Added the <strong>Field Reference</strong> page — curated links to official guidance from FEMA, CISA, OSHA, NOAA, the Red Cross, and more, later expanded with live hazard-monitoring tools (earthquake, hurricane, flood, wildfire, and others)</li>
+          <li>Moved the <strong>CERT Participant Manual</strong> into Course Materials as its own card</li>
+          <li>Added a <strong>Visual Aids</strong> gallery with original diagrams, including animated scenes for the 5 Classes of Fire, CERT Team Command Structure, and Phases of a Crisis</li>
+          <li>Added <strong>Transcripts</strong> (full text of every slide, for skimming and screen readers) and this changelog</li>
         </ul>
       </div>
     </div>
     <div class="entry">
       <div class="entry-date">2026-07-25</div>
-      <div class="entry-body">Split off from the Readiness Arcade project into its own standalone repo, <code>CERT-Reference-Guide</code>.</div>
+      <div class="entry-body">Split off from the Readiness Arcade project into this standalone Reference Guide.</div>
     </div>
   </div>
 
