@@ -41,15 +41,16 @@ Free to run, no install, works on any device.
   hosted here, and where relevant, tags which CERT course section it complements — every
   one of the 8 course sections has at least one link. (The Participant Manual itself now
   lives under Course Materials.)
-- **Visual Aids** — 13 original diagrams and animations, grouped by section on the gallery page.
-  9 illustrate course concepts directly: the fire triangle, structural collapse voids, each of the
+- **Visual Aids** — 17 original diagrams and animations, grouped by section on the gallery page.
+  10 illustrate course concepts directly: the fire triangle, structural collapse voids, each of the
   5 classes of fire (modeled and animated individually — its own burning material, its own correct
-  extinguishing agent, and a moving camera), the CERT command structure, and the phases of a
-  crisis. 4 more (built in Canva) summarize Field Reference material that isn't tied to a specific
-  slide: Know Your Hazards, Run. Hide. Fight., Home Fire Escape Plan, and Build a Kit. Make a Plan.
-  Stay Informed. Each has its own detail page (image/video, full description, sources, and the
-  matching slide where there is one), plus an inline embed on that slide's transcript for the
-  course-linked ones.
+  extinguishing agent, and a moving camera), the CERT command structure, the phases of a
+  crisis, and burn classifications by depth. 7 more (built in Canva) summarize Field Reference
+  material that isn't tied to a specific slide: Know Your Hazards, Watch vs. Warning, Run. Hide.
+  Fight., Hazmat Control Zones, Home Fire Escape Plan, the ICS & NIMS Training Pathway, and
+  Build a Kit. Make a Plan. Stay Informed. Each has its own detail page (image/video, full
+  description, sources, and the matching slide where there is one), plus an inline embed on that
+  slide's transcript for the course-linked ones.
 - **Final exam answer key** — `CERT BASIC TRAINING FINAL EXAM ANSWER KEY.docx`.
 
 Not included: a "CERT Field Operations Guide" (FOG). The versions in wide circulation are a
