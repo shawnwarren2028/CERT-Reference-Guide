@@ -11,3 +11,7 @@ desktop.ini
 
 # Blender auto-backup of the previous save
 *.blend1
+
+# Scratch render tests from building the Blender scenes (single frames used to
+# eyeball a scene mid-build). The finished renders are media/diagram-*.mp4/png.
+media/_test_*
