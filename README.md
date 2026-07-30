@@ -26,18 +26,19 @@ Free to run, no install, works on any device.
   section, for fast skimming, in-page search, and screen readers.
 - **Changelog** — what's changed on the site, plus a per-section note of when
   each course PDF's source file was prepared.
-- **Field Reference** — a curated set of 40 multi-agency links (FEMA, Ready.gov,
+- **Field Reference** — a curated set of 45 multi-agency links (FEMA, Ready.gov,
   NOAA/NWS, USGS, CISA, OSHA, U.S. Fire Administration, American Red Cross, HHS, Census
-  Bureau, GDACS, DHS, SAMHSA, ARRL, and more) across eight categories — hazard-specific
+  Bureau, GDACS, DHS, SAMHSA, ARRL, CDC, and more) across nine categories — hazard-specific
   guides (including live monitors like earthquake/hurricane/wildfire trackers and the
   National Risk Index), live situational awareness & local conditions, security, worker
-  safety, fire & utility safety, incident command (including the IS-100/IS-700/IS-315
-  self-paced courses), amateur radio & volunteer communications (ARES), and family
-  preparedness (including the Disaster Distress Helpline). Every card links out to the
-  source's own site rather than being hosted here, and where relevant, tags which CERT
-  course section it complements — Disaster Psychology (previously uncovered) now has one.
-  Light Search & Rescue and Disaster Medical Ops — Part 2 still have no dedicated links.
-  (The Participant Manual itself now lives under Course Materials.)
+  safety, fire & utility safety, search & rescue (FEMA's Urban Search & Rescue System and
+  OSHA's structural-collapse hazard guide), incident command (including the
+  IS-100/IS-700/IS-315 self-paced courses), amateur radio & volunteer communications
+  (ARES), and family preparedness (including the Disaster Distress Helpline and CDC
+  guidance on post-disaster food/water safety and injury prevention). Every card links out
+  to the source's own site rather than being hosted here, and where relevant, tags which
+  CERT course section it complements — every one of the 8 course sections now has at
+  least one link. (The Participant Manual itself now lives under Course Materials.)
 - **Visual Aids** — 13 original diagrams and animations, grouped by section on the gallery page.
   9 illustrate course concepts directly: the fire triangle, structural collapse voids, each of the
   5 classes of fire (modeled and animated individually — its own burning material, its own correct

@@ -17,6 +17,7 @@ const FIELD_REF_CATEGORIES = [
   { id: 'security',               label: 'Security & Active Threats',                 icon: '🚨' },
   { id: 'worker-safety',          label: 'Worker & Rescuer Safety',                   icon: '🦺' },
   { id: 'fire-utility',           label: 'Fire & Utility Safety',                     icon: '🔥' },
+  { id: 'search-rescue',          label: 'Search & Rescue',                           icon: '🔍' },
   { id: 'incident-command',       label: 'Incident Command & Coordination',           icon: '🗂️' },
   { id: 'comms',                  label: 'Amateur Radio & Volunteer Communications',  icon: '📻' },
   { id: 'family-prep',            label: 'Family & Community Preparedness',           icon: '🏠' },
@@ -467,5 +468,67 @@ const FIELD_REFERENCES = [
     url: 'https://www.samhsa.gov/find-help/helplines/disaster-distress-helpline',
     linkType: 'page',
     relatedSection: 7,
+  },
+
+  /* ── expansion: closed the Section 4 (Disaster Medical Ops — Part 2) and Section 5
+     (Light Search & Rescue) coverage gaps flagged in the previous round. Each URL verified
+     live; the FEMA marking-system PDF (usr_23_20080205_rog.pdf, 2008) and the old CDC
+     woundcare.html page were both considered and dropped — the PDF triggers a download
+     rather than a page (can't verify content in-browser) and the CDC page 404s, replaced
+     below by CDC's current consolidated post-disaster-injury page. ── */
+  {
+    id: 'fema-usr-program',
+    category: 'search-rescue',
+    icon: '🏗️',
+    title: 'National Urban Search & Rescue (US&R) Response System',
+    agency: 'FEMA',
+    description: 'The federal system of task forces that respond to structural-collapse disasters — the professional "heavy" search and rescue system that CERT\'s light search and rescue training feeds into.',
+    url: 'https://www.fema.gov/emergency-managers/national-preparedness/frameworks/urban-search-rescue',
+    linkType: 'page',
+    relatedSection: 5,
+  },
+  {
+    id: 'osha-structural-collapse',
+    category: 'search-rescue',
+    icon: '🏚️',
+    title: 'Structural Collapse Guide',
+    agency: 'OSHA',
+    description: 'Hazard recognition for anyone working around a collapsed or damaged structure — secondary collapse, unstable debris, and knowing when a scene is too dangerous to enter.',
+    url: 'https://www.osha.gov/emergency-preparedness/guides/structural-collapse',
+    linkType: 'page',
+    relatedSection: 5,
+  },
+  {
+    id: 'cdc-food-water-safety',
+    category: 'family-prep',
+    icon: '🥫',
+    title: 'Keep Food and Water Safe After a Disaster',
+    agency: 'CDC',
+    description: 'What food and water is safe to use after flooding or a power outage, and how to purify water when the normal supply is compromised.',
+    url: 'https://www.cdc.gov/food-safety/foods/keep-food-safe-after-emergency.html',
+    linkType: 'page',
+    relatedSection: 4,
+  },
+  {
+    id: 'cdc-wash-emergencies',
+    category: 'family-prep',
+    icon: '🧼',
+    title: 'Water, Sanitation, and Hygiene (WASH) in Emergencies',
+    agency: 'CDC',
+    description: 'Guidance on sanitation, wastewater, and personal hygiene when normal services are disrupted — the public-health side of disaster medical operations.',
+    url: 'https://www.cdc.gov/water-emergency/index.html',
+    linkType: 'page',
+    relatedSection: 4,
+  },
+  {
+    id: 'cdc-post-disaster-injury',
+    category: 'family-prep',
+    icon: '🩹',
+    title: 'Prevent Getting Hurt or Sick After a Disaster',
+    agency: 'CDC',
+    description: 'Floodwater hazards, wound care and infection risk, and other injury/illness dangers in the cleanup period after a disaster.',
+    url: 'https://www.cdc.gov/natural-disasters/response/',
+    linkType: 'page',
+    relatedSection: 4,
   },
 ];
