@@ -7,12 +7,13 @@ Free to run, no install, works on any device.
 
 ## What's inside
 
-- **CERT Glossary** — a searchable reference of 208 terms: 80 from CERT Basic Training, 102
-  more covering DCAP-BTLS/SAMPLE/OPQRST/AVPU/GCS, ICS roles, hazmat zones, named hazards, and
-  other multi-agency Field Reference material, plus the full 26-letter NATO phonetic alphabet.
-  Switch how the list is organized: alphabetically (default), by course section, or by the
-  agency each term comes from (FEMA, CISA, OSHA, NOAA/NWS, USFA, HHS, Red Cross, VOAD,
-  UN/GDACS, USGS, ICAO).
+- **CERT Glossary** — a searchable reference of 216 terms: 80 from CERT Basic Training, 110
+  more covering DCAP-BTLS/SAMPLE/OPQRST/AVPU/GCS, ICS roles, hazmat zones, named hazards,
+  the volunteer-response ecosystem (Team Rubicon, Red Cross programs, and why affiliated
+  volunteer orgs matter), and other multi-agency Field Reference material, plus the full
+  26-letter NATO phonetic alphabet. Switch how the list is organized: alphabetically
+  (default), by course section, or by the agency each term comes from (FEMA, CISA, OSHA,
+  NOAA/NWS, USFA, HHS, Red Cross, VOAD, Team Rubicon, UN/GDACS, USGS, ICAO).
 - **Course Materials** — the official CERT Basic Training presentations for
   Sections 1–8 (disaster prep, fire safety, medical ops, search & rescue,
   CERT organization, disaster psychology, and terrorism/CERT), each available
@@ -26,21 +27,24 @@ Free to run, no install, works on any device.
   section, for fast skimming, in-page search, and screen readers.
 - **Changelog** — what's changed on the site, plus a per-section note of when
   each course PDF's source file was prepared.
-- **Field Reference** — a curated set of 51 multi-agency links (FEMA, Ready.gov,
+- **Field Reference** — a curated set of 56 multi-agency links (FEMA, Ready.gov,
   NOAA/NWS, USGS, CISA, OSHA, U.S. Fire Administration, American Red Cross, HHS, Census
-  Bureau, GDACS, DHS, SAMHSA, ARRL, CDC, and more) across nine categories — hazard-specific
-  guides (including live monitors like earthquake/hurricane/wildfire trackers and the
-  National Risk Index), live situational awareness & local conditions, security, worker
-  safety, fire & utility safety, search & rescue (FEMA's Urban Search & Rescue System and
-  OSHA's structural-collapse hazard guide), incident command (the full IS-100/IS-200/
-  IS-315/IS-317/IS-700/IS-800 self-paced course set, FEMA's national CERT program page,
-  and the Medical Reserve Corps), amateur radio & volunteer communications (ARES), and
-  family preparedness (including the Disaster Distress Helpline, FEMA's access &
-  functional needs guidance, and CDC guidance on post-disaster food/water safety and
-  injury prevention). Every card links out to the source's own site rather than being
-  hosted here, and where relevant, tags which CERT course section it complements — every
-  one of the 8 course sections has at least one link. (The Participant Manual itself now
-  lives under Course Materials.)
+  Bureau, GDACS, DHS, SAMHSA, ARRL, CDC, Team Rubicon, and more) across ten categories —
+  hazard-specific guides (including live monitors like earthquake/hurricane/wildfire
+  trackers and the National Risk Index), live situational awareness & local conditions
+  (including the Red Cross's suite of alert apps), security, worker safety, fire & utility
+  safety (including the Red Cross Home Fire Campaign's free smoke-alarm program), search &
+  rescue (FEMA's Urban Search & Rescue System and OSHA's structural-collapse hazard guide),
+  incident command (the full IS-100/IS-200/IS-315/IS-317/IS-700/IS-800 self-paced course
+  set and FEMA's national CERT program page), volunteer & partner organizations (National
+  VOAD, the Medical Reserve Corps, and Team Rubicon), amateur radio & volunteer
+  communications (ARES), and family preparedness (including the Disaster Distress Helpline,
+  FEMA's access & functional needs guidance, CDC guidance on post-disaster food/water
+  safety and injury prevention, and Red Cross training/youth-education programs). Every
+  card links out to the source's own site rather than being hosted here, and where
+  relevant, tags which CERT course section it complements — every one of the 8 course
+  sections has at least one link. (The Participant Manual itself now lives under Course
+  Materials.)
 - **Visual Aids** — 24 original diagrams and animations, grouped by section on the gallery page.
   13 illustrate course concepts directly and link to their exact slide: the fire triangle, the
   5 classes of fire (modeled and animated individually — its own burning material, its own correct

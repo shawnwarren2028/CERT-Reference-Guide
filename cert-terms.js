@@ -245,6 +245,16 @@ const CERT_TERMS = [
   {a:"X-RAY",    d:1, clue:"NATO phonetic alphabet letter for X.", info:"'X-ray' replaces X for clear radio spelling.", agency:"icao"},
   {a:"YANKEE",   d:1, clue:"NATO phonetic alphabet letter for Y.", info:"'Yankee' stands in for Y on the radio.", agency:"icao"},
   {a:"ZULU",     d:1, clue:"NATO phonetic alphabet letter for Z — also military shorthand for UTC time.", info:"'Zulu' replaces Z, and 'Zulu time' means UTC in radio and military use.", agency:"icao"},
+
+  // ── volunteer & partner organizations expansion (Team Rubicon + American Red Cross programs) ──
+  {a:"RUBICON",    d:2, clue:"Team ___ — a veteran-led disaster response nonprofit.", info:"About 70% of Team Rubicon's 200,000+ volunteers are military veterans, though service isn't required to join.", agency:"teamrubicon", srcHref:"companion.html"},
+  {a:"GREYSHIRT",  d:3, clue:"Team Rubicon's own name for its volunteers, after the color of their shirt.", info:"Team Rubicon's value statement is \"Mission First, Greyshirts Always.\"", agency:"teamrubicon", srcHref:"companion.html"},
+  {a:"HAITI",      d:2, clue:"Site of the 2010 earthquake that was Team Rubicon's founding operation.", info:"Team Rubicon's founders crossed into Haiti to help after the 2010 earthquake — the org's name itself references crossing a river with no turning back.", agency:"teamrubicon", srcHref:"companion.html"},
+  {a:"VETERAN",    d:1, clue:"About 70% of Team Rubicon's volunteers are military ___s.", info:"Service isn't required to volunteer with Team Rubicon — only a commitment to helping."},
+  {a:"PILLOWCASE", d:2, clue:"The ___ Project — a Red Cross classroom program teaching kids disaster prep.", info:"Inspired by New Orleans students who carried belongings in pillowcases evacuating Hurricane Katrina; it's since reached over a million children.", agency:"redcross", srcHref:"companion.html"},
+  {a:"ALARM",      d:1, clue:"The Red Cross \"Sound the ___\" campaign installs these for free.", info:"A working smoke alarm cuts the risk of dying in a home fire in half.", agency:"redcross", srcHref:"companion.html"},
+  {a:"SUV",        d:3, clue:"Spontaneous Unaffiliated Volunteer (acronym) — shows up to help with no training or affiliation.", info:"FEMA's own doctrine warns that uncoordinated SUVs can become 'a disaster within a disaster' — exactly why VOAD, MRC, Team Rubicon, and CERT itself exist.", srcHref:"companion.html"},
+  {a:"AFFILIATED", d:2, clue:"Trained and registered with a recognized volunteer org, unlike a spontaneous (SUV) one.", info:"Being affiliated — with CERT, VOAD, MRC, or Team Rubicon — is what lets a volunteer's skills actually be put to use during a disaster."},
 ];
 
 /* CERT sections (used for themed crossword mode + glossary grouping).
@@ -276,7 +286,8 @@ const SECTION_DEFS = [
     words:['CBRNE','SECONDARY','STANDOFF','IED','LOCKDOWN','SUSPICIOUS','ACTIVE SHOOTER']},
   {id:'fieldref', name:'Field Reference (Multi-Agency)', icon:'🌐', ref:'companion.html',
     words:['CISA','OSHA','USFA','VOAD','GDACS','NWS','ANNEX','RUN-HIDE-FIGHT','WATCH','WARNING','LAHAR',
-      'EARTHQUAKE','TSUNAMI','VOLCANO','LANDSLIDE','WILDFIRE','HURRICANE','TORNADO','WINTER STORM','EXTREME HEAT','FLOOD','PANDEMIC','MUTUAL AID']},
+      'EARTHQUAKE','TSUNAMI','VOLCANO','LANDSLIDE','WILDFIRE','HURRICANE','TORNADO','WINTER STORM','EXTREME HEAT','FLOOD','PANDEMIC','MUTUAL AID',
+      'RUBICON','GREYSHIRT','HAITI','VETERAN','PILLOWCASE','ALARM','SUV','AFFILIATED']},
   {id:'nato', name:'NATO Phonetic Alphabet', icon:'📻', ref:'reference.html',
     words:['ALPHA','BRAVO','CHARLIE','DELTA','ECHO','FOXTROT','GOLF','HOTEL','INDIA','JULIETT','KILO','LIMA',
       'MIKE','NOVEMBER','OSCAR','PAPA','QUEBEC','ROMEO','SIERRA','TANGO','UNIFORM','VICTOR','WHISKEY','X-RAY','YANKEE','ZULU']},
@@ -297,6 +308,7 @@ const AGENCY_DEFS = [
   {id:'hhs',      name:'U.S. Health & Human Services',          icon:'🏥'},
   {id:'redcross', name:'American Red Cross / Ready.gov',        icon:'➕'},
   {id:'voad',     name:'National VOAD',                         icon:'🤝'},
+  {id:'teamrubicon', name:'Team Rubicon',                       icon:'🎖️'},
   {id:'un',       name:'United Nations / GDACS',                icon:'🌐'},
   {id:'usgs',     name:'USGS',                                  icon:'🌋'},
   {id:'icao',     name:'ICAO / International Radio Alphabet',   icon:'📻'},

@@ -19,6 +19,7 @@ const FIELD_REF_CATEGORIES = [
   { id: 'fire-utility',           label: 'Fire & Utility Safety',                     icon: '🔥' },
   { id: 'search-rescue',          label: 'Search & Rescue',                           icon: '🔍' },
   { id: 'incident-command',       label: 'Incident Command & Coordination',           icon: '🗂️' },
+  { id: 'volunteer-orgs',         label: 'Volunteer & Partner Organizations',         icon: '🤝' },
   { id: 'comms',                  label: 'Amateur Radio & Volunteer Communications',  icon: '📻' },
   { id: 'family-prep',            label: 'Family & Community Preparedness',           icon: '🏠' },
 ];
@@ -223,6 +224,17 @@ const FIELD_REFERENCES = [
     relatedSection: 2,
   },
   {
+    id: 'redcross-sound-the-alarm',
+    category: 'fire-utility',
+    icon: '🚨',
+    title: 'Sound the Alarm / Home Fire Campaign',
+    agency: 'American Red Cross',
+    description: 'Home fires claim seven lives a day on average, but a working smoke alarm cuts that risk in half. The Red Cross installs free smoke alarms and helps build escape plans — sign up for a home visit, or volunteer at a local Sound the Alarm event.',
+    url: 'https://www.redcross.org/sound-the-alarm.html',
+    linkType: 'page',
+    relatedSection: 2,
+  },
+  {
     id: 'poweroutage-us',
     category: 'fire-utility',
     icon: '💡',
@@ -246,12 +258,23 @@ const FIELD_REFERENCES = [
   },
   {
     id: 'national-voad',
-    category: 'incident-command',
+    category: 'volunteer-orgs',
     icon: '🤝',
     title: 'National VOAD',
     agency: 'National Voluntary Organizations Active in Disaster',
     description: 'The national coordinating body for the voluntary organizations that respond alongside CERT and other responders during disasters.',
     url: 'https://www.nvoad.org/',
+    linkType: 'page',
+    relatedSection: 6,
+  },
+  {
+    id: 'team-rubicon',
+    category: 'volunteer-orgs',
+    icon: '🎖️',
+    title: 'Team Rubicon',
+    agency: 'Team Rubicon',
+    description: 'A veteran-led disaster response organization — about 70% of its 200,000+ volunteers ("Greyshirts") are military veterans, though service isn\'t required to join. Deploys nationwide for everything from hurricanes and wildfires to long-term recovery work.',
+    url: 'https://teamrubiconusa.org/',
     linkType: 'page',
     relatedSection: 6,
   },
@@ -342,6 +365,17 @@ const FIELD_REFERENCES = [
     url: 'https://empowerprogram.hhs.gov/empowermap',
     linkType: 'page',
     relatedSection: 1,
+  },
+  {
+    id: 'redcross-mobile-apps',
+    category: 'situational-awareness',
+    icon: '📱',
+    title: 'Red Cross Mobile Apps',
+    agency: 'American Red Cross',
+    description: 'A suite of free apps — Emergency, First Aid, Flood, Hurricane, Tornado, and Wildfire — with real-time alerts, safety checklists, and shelter locations, all working offline once downloaded.',
+    url: 'https://www.redcross.org/get-help/how-to-prepare-for-emergencies/mobile-apps.html',
+    linkType: 'page',
+    relatedSection: null,
   },
 
   /* ── expansion: filled coverage gaps identified in a follow-up review — Disaster Psychology
@@ -582,7 +616,7 @@ const FIELD_REFERENCES = [
   },
   {
     id: 'hhs-medical-reserve-corps',
-    category: 'incident-command',
+    category: 'volunteer-orgs',
     icon: '🩺',
     title: 'Medical Reserve Corps (MRC)',
     agency: 'U.S. Dept. of Health and Human Services (ASPR)',
@@ -599,6 +633,35 @@ const FIELD_REFERENCES = [
     agency: 'FEMA',
     description: 'Guidance on planning for people with disabilities and access/functional needs — evacuation, sheltering, and communication considerations CERT outreach should account for.',
     url: 'https://www.fema.gov/about/offices/disability',
+    linkType: 'page',
+    relatedSection: 1,
+  },
+
+  /* ── expansion: American Red Cross programs/tools + Team Rubicon (see volunteer-orgs
+     entries above). Note: redcross.org/pillowcase now redirects to a different, unrelated
+     Red Cross program ("Prep Champion") — the Pillowcase Project has no single stable
+     current national landing page, so this entry points to the verified live youth-prep
+     hub (which centers on Prepare with Pedro) and names Pillowcase Project in the
+     description rather than linking a guessed/broken URL for it. ── */
+  {
+    id: 'redcross-take-a-class',
+    category: 'family-prep',
+    icon: '🎓',
+    title: 'Take a Class (CPR, First Aid & Disaster Training)',
+    agency: 'American Red Cross',
+    description: 'Find in-person and online CPR, First Aid, AED, and disaster-training classes near you — a way to build on the CPR/AED/Heimlich basics covered in CERT training.',
+    url: 'https://www.redcross.org/take-a-class',
+    linkType: 'page',
+    relatedSection: null,
+  },
+  {
+    id: 'redcross-youth-preparedness',
+    category: 'family-prep',
+    icon: '🧒',
+    title: 'Youth Preparedness Programs',
+    agency: 'American Red Cross',
+    description: 'Free classroom disaster-education programs for kids: Prepare with Pedro (grades K-3, storybook-based) and the Pillowcase Project (grades 3-5, in-person "Learn, Practice, Share" sessions) — useful if your CERT program does school or community outreach.',
+    url: 'https://www.redcross.org/get-help/how-to-prepare-for-emergencies/teaching-kids-about-emergency-preparedness.html',
     linkType: 'page',
     relatedSection: 1,
   },
