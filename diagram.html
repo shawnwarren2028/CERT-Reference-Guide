@@ -53,7 +53,6 @@
   .dv-media{width:100%;border-radius:var(--radius);overflow:hidden;background:#000;margin-bottom:20px;
     border:1px solid var(--border);}
   .dv-media img, .dv-media video{width:100%;height:auto;display:block;}
-  .dv-kicker{font-size:0.74rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);font-weight:700;margin-bottom:6px;}
   .dv-title{font-size:1.6rem;font-weight:800;color:var(--primary);margin-bottom:14px;}
   .dv-desc{font-size:0.96rem;color:var(--text);opacity:.92;line-height:1.65;margin-bottom:22px;}
 
@@ -64,17 +63,6 @@
   .dv-chip{font-size:0.78rem;color:var(--primary-light);text-decoration:none;border:1px solid var(--border);
     background:var(--surface2);padding:7px 12px;border-radius:20px;transition:.15s;}
   .dv-chip:hover{border-color:var(--primary);background:var(--border);}
-
-  .dv-slide-box{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
-    padding:18px 20px;margin-bottom:26px;}
-  .dv-slide-head{display:flex;align-items:center;gap:10px;margin-bottom:10px;flex-wrap:wrap;}
-  .dv-slide-title{font-weight:700;color:var(--primary);font-size:0.95rem;}
-  .dv-slide-num{font-size:0.7rem;color:var(--text-muted);background:var(--surface2);border:1px solid var(--border);
-    border-radius:20px;padding:2px 9px;}
-  .dv-slide-text{font-size:0.88rem;line-height:1.6;white-space:pre-line;color:var(--text);opacity:.9;margin-bottom:12px;}
-  .dv-slide-links{display:flex;gap:16px;flex-wrap:wrap;}
-  .dv-slide-links a{font-size:0.8rem;color:var(--primary-light);text-decoration:none;font-weight:600;}
-  .dv-slide-links a:hover{text-decoration:underline;}
 
   .dv-nav{display:flex;gap:10px;justify-content:center;margin-top:8px;}
 
@@ -121,8 +109,6 @@
   <a href="changelog.html">Changelog</a>
 </footer>
 
-<script src="reference-sections.js"></script>
-<script src="data/deck-text.js"></script>
 <script src="data/diagrams.js"></script>
 <script>
 const $ = id => document.getElementById(id);
@@ -146,34 +132,16 @@ function render(){
   $('prev-btn').onclick = () => location.href = 'diagram.html?id=' + prev.id;
   $('next-btn').onclick = () => location.href = 'diagram.html?id=' + next.id;
 
-  const sec = DECK_TEXT.sections.find(s => s.base === d.docBase);
-  const page = sec && sec.pages.find(p => p.n === d.slide);
-
   const sourcesHtml = d.sources.map(s => `<a class="dv-chip" href="${s.href}">${esc(s.label)}</a>`).join('');
-
-  const slideBoxHtml = page ? `
-    <div class="dv-slide-box">
-      <div class="dv-slide-head">
-        <span class="dv-slide-title">📄 From the course slide</span>
-        <span class="dv-slide-num">${esc(sec.name)} · Slide ${d.slide} / ${sec.pageCount}</span>
-      </div>
-      <div class="dv-slide-text">${esc(page.text || '(No extractable text for this slide.)')}</div>
-      <div class="dv-slide-links">
-        <a href="transcript.html?doc=${d.docBase}#slide-${d.slide}">Read full transcript →</a>
-        <a href="viewer.html?doc=${d.docBase}&slide=${d.slide}" target="_blank" rel="noopener">View original slide ↗</a>
-      </div>
-    </div>` : '';
 
   $('main').innerHTML = `
     <div class="dv-media">${diagramMediaHtml(d)}</div>
-    <div class="dv-kicker">${esc(d.sectionLabel)}</div>
     <div class="dv-title">${d.icon} ${esc(d.title)}</div>
     <div class="dv-desc">${esc(d.long)}</div>
     <div class="dv-sources">
       <div class="dv-sources-label">References</div>
       <div class="dv-chip-row">${sourcesHtml}</div>
     </div>
-    ${slideBoxHtml}
     <div class="dv-nav">
       <a class="tb-btn" href="diagrams.html">← Back to Visual Aids</a>
     </div>`;
