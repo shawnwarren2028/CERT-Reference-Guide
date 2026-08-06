@@ -45,23 +45,28 @@ Free to run, no install, works on any device.
   relevant, tags which CERT course section it complements — every one of the 8 course
   sections has at least one link. (The Participant Manual itself now lives under Course
   Materials.)
-- **Visual Aids** — 24 original diagrams and animations, grouped into 8 topic-based sections on
+- **Visual Aids** — 31 original diagrams and animations, grouped into 8 topic-based sections on
   the gallery page (Fire & Utility Safety, Medical Operations & Psychology, Light Search &
   Rescue, CERT Organization & Incident Command, Hazard-Specific Guides, Security & Active
   Threats, Worker & Rescuer Safety, and Family & Community Preparedness — combining what used to
-  be split across individual course sections and a separate Field Reference bucket). 13
+  be split across individual course sections and a separate Field Reference bucket). 16
   illustrate course concepts directly and link to their exact slide: the fire triangle, the 5
   classes of fire (modeled and animated individually — its own burning material, its own correct
   extinguishing agent, and a moving camera), the three "killers", how to approach a survivor,
-  burn classifications by depth, the 9-step CERT size-up model, structural collapse voids, the
-  CERT command structure, and the phases of a crisis. 4 more are patient-assessment mnemonics
-  (AVPU, SAMPLE, OPQRST, and the Glasgow Coma Scale) that are **not** taught in CERT Basic
-  Training — each says plainly in its own description that it's beyond CERT scope of practice.
-  7 more (built in Canva) summarize Field Reference material that isn't tied to a specific slide:
-  Know Your Hazards, Watch vs. Warning, Run. Hide. Fight., Hazmat Control Zones, Home Fire Escape
-  Plan, the ICS & NIMS Training Pathway, and Build a Kit. Make a Plan. Stay Informed. Each has its
-  own detail page (image/video, full description, sources, and the matching slide where there is
-  one), plus an inline embed on that slide's transcript for the course-linked ones.
+  burn classifications by depth, Stop the Bleed (CERT's own bleeding-control methods mapped to
+  the national ABC framework), Heat & Cold Emergencies, Search Patterns (CERT's actual
+  right-wall/left-wall, bottom-up/top-down, and grid search techniques), the 9-step CERT size-up
+  model, structural collapse voids, the CERT command structure, and the phases of a crisis. 6
+  more are supplementary, awareness-level content that is **not** taught in CERT Basic Training —
+  the four patient-assessment mnemonics (AVPU, SAMPLE, OPQRST, and the Glasgow Coma Scale), plus
+  CPR and Choking/Heimlich — each saying plainly in its own description that it's beyond CERT
+  scope of practice. AMBER Alert and Silver Alert cover public-safety alert systems (not CERT
+  content either, but common enough that CERT members should know what they mean). 7 more (built
+  in Canva) summarize Field Reference material that isn't tied to a specific slide: Know Your
+  Hazards, Watch vs. Warning, Run. Hide. Fight., Hazmat Control Zones, Home Fire Escape Plan, the
+  ICS & NIMS Training Pathway, and Build a Kit. Make a Plan. Stay Informed. Each has its own
+  detail page (image, full description, sources, and the matching slide where there is one), plus
+  an inline embed on that slide's transcript for the course-linked ones.
 - **Final exam answer key** — `CERT BASIC TRAINING FINAL EXAM ANSWER KEY.docx`.
 
 Not included: a "CERT Field Operations Guide" (FOG). The versions in wide circulation are a
