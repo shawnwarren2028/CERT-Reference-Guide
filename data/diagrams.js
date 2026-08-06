@@ -10,7 +10,7 @@ const DIAGRAMS = [
     alt: 'Dark, dramatic illustrated infographic of the fire triangle with photographic circular icons for Heat (flame), Fuel (stacked wood), and Oxygen (blue smoke swirl), each with a labeled explanation.',
     docBase: 'section_02_unit_2_ppt_508',
     slide: 6,
-    sectionLabel: 'Section 2 · Fire Safety & Utility Controls',
+    sectionLabel: 'Fire & Utility Safety',
     short: 'The three elements every fire needs — heat, fuel, and oxygen. Remove any one and the fire goes out.',
     long: 'Every fire needs all three of these at once: enough heat to ignite and sustain combustion, a fuel source to burn, and oxygen to feed the chemical reaction. CERT fire-suppression training builds on this model — a portable extinguisher works by knocking out one side of the triangle (dry chemical and foam smother oxygen, water cools heat, clearing debris removes fuel). If any one side is missing, the fire can\'t start or can\'t continue. Confirm all three are present — and that you\'re only dealing with a small, incipient-stage fire — before considering an extinguisher.',
     sources: [
@@ -27,7 +27,7 @@ const DIAGRAMS = [
     alt: 'Animated diagram of three colored cards appearing in sequence — Airway (obstruction), Bleeding (excessive), and Shock (poor perfusion) — the three emergency-medicine killers CERT treats first.',
     docBase: 'section_03_unit_3_ppt_508',
     slide: 6,
-    sectionLabel: 'Section 3 · Disaster Medical Ops — Part 1',
+    sectionLabel: 'Medical Operations & Psychology',
     short: 'The three conditions that kill fastest in a disaster — airway obstruction, excessive bleeding, and shock — and the order CERT addresses them.',
     long: 'CERT medical operations are built around three conditions that kill faster than anything else a responder is likely to encounter: an obstructed airway, excessive bleeding, and shock. These are the "killers," and they define CERT\'s first priority on any patient — open the airway, control excessive bleeding, and treat for shock, in that order. The order matters because it follows how quickly each one becomes fatal: a blocked airway kills in minutes, severe bleeding can kill almost as fast, and untreated shock kills more slowly but just as surely. Everything else in the head-to-toe assessment waits until these three are addressed. In a mass-casualty situation where many people need help at once, this is also what makes rapid triage possible — a CERT member can check and correct all three in well under a minute per patient.',
     sources: [
@@ -44,7 +44,7 @@ const DIAGRAMS = [
     alt: 'Animated diagram of four colored cards appearing in sequence — Be Seen (make sure they can see you), Identify (your name and organization), Consent (request permission to treat), and Respect (cultural differences).',
     docBase: 'section_03_unit_3_ppt_508',
     slide: 7,
-    sectionLabel: 'Section 3 · Disaster Medical Ops — Part 1',
+    sectionLabel: 'Medical Operations & Psychology',
     short: 'Four things to do before you touch anyone: be seen, identify yourself, ask permission, and respect cultural differences.',
     long: 'How a CERT member first approaches an injured person shapes everything that follows. Make sure the survivor can see you coming — approaching from behind or out of view can frighten someone who is already disoriented or in pain. Identify yourself by name and by the organization you represent, so they know who you are and why you are there. Request permission to treat whenever the person is conscious and able to answer; consent matters both ethically and practically, and someone who agrees to help is far easier to assist. Finally, respect cultural differences around touch, modesty, eye contact, and who may speak for whom, which vary widely and can matter a great deal to the person you are helping. These four steps cost seconds and materially change whether a survivor cooperates with care.',
     sources: [
@@ -61,7 +61,7 @@ const DIAGRAMS = [
     alt: 'Dark poster titled "Burn Classifications — Assessing Burn Depth" with three stacked skin cross-section illustrations showing progressively deeper damage, labeled Superficial, Partial Thickness, and Full Thickness, each with a short description of how it looks and feels.',
     docBase: 'section_04_unit_4_ppt_508',
     slide: 25,
-    sectionLabel: 'Section 4 · Disaster Medical Ops — Part 2',
+    sectionLabel: 'Medical Operations & Psychology',
     short: 'The three burn depths CERT is trained to recognize — superficial, partial thickness, and full thickness — and how each one looks and feels.',
     long: 'CERT medical training classifies burns by how deep into the skin the damage goes, because depth drives both severity and treatment. A Superficial burn affects only the epidermis, the outermost layer — it looks red and is painful, but does not blister. A Partial Thickness burn reaches the dermis beneath it, producing blisters, swelling, and significant pain. A Full Thickness burn extends through all skin layers into the subcutaneous tissue; it may look white, leathery, or charred, and can feel numb rather than painful because the nerve endings themselves have been destroyed — which makes the absence of pain a warning sign, not a reassuring one. Estimating depth alongside the extent of the burned area helps CERT members prioritize care and communicate clearly when handing a patient over to EMS.',
     sources: [
@@ -78,7 +78,7 @@ const DIAGRAMS = [
     alt: 'Animated diagram of nine numbered colored tiles arranged in a ring around a central "CERT Size-Up — A Continual Process" hub, each lighting up in sequence: Gather Facts, Assess Damage, Consider Probabilities, Assess Your Situation, Establish Priorities, Make Decisions, Develop Plan of Action, Take Action, and Evaluate Progress.',
     docBase: 'section_05_unit_5_ppt_508',
     slide: 8,
-    sectionLabel: 'Section 5 · Light Search & Rescue',
+    sectionLabel: 'Light Search & Rescue',
     short: 'The nine-step size-up model CERT runs continuously on every scene — arranged as a loop, because it never actually finishes.',
     long: 'Size-up is the decision-making process CERT uses to understand a scene and decide what to do about it, and the course teaches it as nine steps: Gather Facts, Assess Damage, Consider Probabilities, Assess Your Situation, Establish Priorities, Make Decisions, Develop a Plan of Action, Take Action, and Evaluate Progress. It is drawn here as a ring rather than a list for a reason — the course is emphatic that CERT size-up is a continual process, not a checklist you complete once at the start. Step 9, Evaluate Progress, feeds straight back into Step 1: conditions change, new facts surface, a structure shifts, weather turns, and the plan that was correct ten minutes ago may no longer be. Evaluate Progress is described as the most critical step for exactly that reason. The same nine-step model appears in the fire safety and medical operations units too, so it is worth knowing cold.',
     sources: [
@@ -95,7 +95,7 @@ const DIAGRAMS = [
     alt: 'Colorful, detailed side-view illustration of three structural collapse void types — pancake void, lean-to void, and V-shape void — with concrete slabs and rubble piles.',
     docBase: 'section_05_unit_5_ppt_508',
     slide: 23,
-    sectionLabel: 'Section 5 · Light Search & Rescue',
+    sectionLabel: 'Light Search & Rescue',
     short: 'A side-view comparison of the three void types searchers look for: pancake, lean-to, and V-shape.',
     long: 'When a structure collapses, survivors are most often found in survivable void spaces — pockets where falling material didn\'t completely crush the space beneath it. CERT search training covers three common shapes: a Pancake Void, where a floor or roof drops flat onto the level below and is held up at the edges by furniture or debris; a Lean-to Void, where one end of a collapsed slab stays supported (by a wall or beam) while the other end drops to the floor, leaving a wedge-shaped gap; and a V-Void, where a slab breaks in the middle and both ends settle downward, meeting near the floor in a V shape. Knowing these shapes tells searchers where to call out, where to listen, and — strictly within CERT\'s scope of light search and rescue — where it may be safe to look further.',
     sources: [
@@ -112,7 +112,7 @@ const DIAGRAMS = [
     alt: 'Animated scene of a burning wood pile extinguished with a water/foam stream from a fire extinguisher, with rising smoke and an orbiting camera.',
     docBase: 'section_02_unit_2_ppt_508',
     slide: 7,
-    sectionLabel: 'Section 2 · Fire Safety & Utility Controls',
+    sectionLabel: 'Fire & Utility Safety',
     short: 'Wood, paper, and cloth — put out with water, foam, or a standard ABC dry-chemical extinguisher.',
     long: 'Class A fires burn ordinary combustibles: wood, paper, cloth, and most household trash. These are the most common fires and the most forgiving — water works because it cools the fuel below its ignition point, and a standard ABC-rated extinguisher\'s dry chemical or foam works too. Never assume every extinguisher is rated for every class, though; always check the label before reaching for one.',
     sources: [
@@ -129,7 +129,7 @@ const DIAGRAMS = [
     alt: 'Animated scene of a burning liquid pool fire next to a spilled fuel can, extinguished with a dry-chemical powder cloud.',
     docBase: 'section_02_unit_2_ppt_508',
     slide: 7,
-    sectionLabel: 'Section 2 · Fire Safety & Utility Controls',
+    sectionLabel: 'Fire & Utility Safety',
     short: 'Gasoline, oil, and other liquid fuels — never use water; smother with dry chemical or foam instead.',
     long: 'Class B fires burn flammable and combustible liquids — gasoline, oil, solvents. Water is actively dangerous here: it can\'t cool a liquid fuel effectively and may just spread a burning puddle further. Instead, a dry-chemical extinguisher smothers the fire by interrupting the chemical reaction with a billowing powder cloud, cutting off the oxygen the pool needs to keep burning.',
     sources: [
@@ -146,7 +146,7 @@ const DIAGRAMS = [
     alt: 'Animated scene of a sparking electrical panel fire extinguished with a wispy CO2 gas mist from a horn-nozzle extinguisher.',
     docBase: 'section_02_unit_2_ppt_508',
     slide: 7,
-    sectionLabel: 'Section 2 · Fire Safety & Utility Controls',
+    sectionLabel: 'Fire & Utility Safety',
     short: 'Live panels, outlets, and wiring — use a non-conductive agent like CO2; water can electrocute you.',
     long: 'Class C fires involve energized electrical equipment — panels, outlets, live wiring. The defining hazard isn\'t the flame, it\'s the electricity: water conducts current straight back to you, so it\'s never an option here. A CO2 extinguisher displaces oxygen with a non-conductive gas that dissipates without leaving residue on sensitive equipment — cut power first if you safely can, since once it\'s de-energized the fire often reclassifies as Class A.',
     sources: [
@@ -163,7 +163,7 @@ const DIAGRAMS = [
     alt: 'Animated scene of intensely bright white-burning magnesium shavings smothered under a poured specialized dry-powder blanket.',
     docBase: 'section_02_unit_2_ppt_508',
     slide: 7,
-    sectionLabel: 'Section 2 · Fire Safety & Utility Controls',
+    sectionLabel: 'Fire & Utility Safety',
     short: 'Burning metals like magnesium or titanium — needs a specialized dry powder, poured on, not sprayed.',
     long: 'Class D fires burn combustible metals — magnesium, titanium, sodium — and burn intensely bright and hot, often white-blue rather than orange. Water is dangerous here too: some burning metals react violently with it. These need a specialized dry powder agent (not the standard ABC dry chemical) applied gently to smother and bury the fire, cutting off its oxygen, rather than sprayed under pressure like other classes. This is well outside CERT\'s scope of practice — the point is recognizing it, not fighting it.',
     sources: [
@@ -180,7 +180,7 @@ const DIAGRAMS = [
     alt: 'Animated scene of a frying-pan grease fire extinguished with a wet-chemical mist that forms a foam blanket over the pan.',
     docBase: 'section_02_unit_2_ppt_508',
     slide: 7,
-    sectionLabel: 'Section 2 · Fire Safety & Utility Controls',
+    sectionLabel: 'Fire & Utility Safety',
     short: 'Kitchen grease and cooking oil fires — a wet chemical agent forms a foam blanket over the surface.',
     long: 'Class K fires burn cooking oils and greases — the classic kitchen fire. These burn hotter than typical liquid fuels and can re-flash easily, so a wet-chemical extinguisher is used: it reacts with the hot oil (saponification) to form a soapy foam blanket that seals the surface from oxygen and cools it at the same time. Water is a serious hazard on a grease fire — it can vaporize instantly and violently splash burning oil outward.',
     sources: [
@@ -197,7 +197,7 @@ const DIAGRAMS = [
     alt: 'Animated organizational chart building from the top down, with each connecting line growing into place and a traveling signal pulse riding its leading edge: Incident Commander/Team Leader, Command Post, then expanding into Fire Suppression, Medical, and Search & Rescue teams.',
     docBase: 'section_06_unit_6_ppt_508',
     slide: 8,
-    sectionLabel: 'Section 6 · CERT Organization',
+    sectionLabel: 'CERT Organization & Incident Command',
     short: 'A simple, flexible command structure led by an Incident Commander/Team Leader that expands only as needed.',
     long: 'When a CERT team activates, it needs a clear, simple chain of command — not a rigid one. The team is led by an Incident Commander/Team Leader (IC/TL), who sets up a Command Post to track the situation and coordinate action. From there, the structure expands only as needed to match the size of the incident: CERT\'s own training areas — fire suppression, medical operations, and light search and rescue — become functional teams under the IC/TL when the situation calls for them. This mirrors the same principles used by the Incident Command System (ICS) that professional responders use, scaled down to CERT\'s size and mission, so CERT teams can integrate smoothly once professional help arrives.',
     sources: [
@@ -214,7 +214,7 @@ const DIAGRAMS = [
     alt: 'Animated diagram of the four phases of a crisis arranged in a square cycle with directional arrows — Impact, Inventory, Rescue, and Recovery — with a slow traveling glowing dot moving along each arrow in sequence.',
     docBase: 'section_07_unit_7_ppt_508',
     slide: 12,
-    sectionLabel: 'Section 7 · Disaster Psychology',
+    sectionLabel: 'Medical Operations & Psychology',
     short: 'Survivors and responders move through four emotional phases after a disaster: Impact, Inventory, Rescue, and Recovery.',
     long: 'CERT\'s disaster psychology training describes four phases survivors and responders tend to move through after a traumatic event. Impact is the moment of the disaster itself and the shock immediately after. Inventory follows quickly, as people take stock of what happened, who\'s hurt, and what\'s damaged. Rescue is the active period of helping — searching, treating, and stabilizing others, often running on adrenaline. Recovery is the longer process afterward, working through the emotional and physical aftermath. Recognizing which phase a survivor — or a fellow CERT member — is in helps responders know what kind of support is actually useful in the moment.',
     sources: [
@@ -236,7 +236,7 @@ const DIAGRAMS = [
     alt: 'Animated diagram of four stacked colored bars appearing in sequence — A Alert (awake, aware, responds appropriately), V Verbal (responds to voice), P Pain (responds only to painful stimuli), and U Unresponsive (no response to any stimulus).',
     docBase: null,
     slide: null,
-    sectionLabel: 'Patient Assessment · Supplementary Reference',
+    sectionLabel: 'Medical Operations & Psychology',
     short: 'A four-level shorthand for how awake someone is: Alert, Verbal, Pain, Unresponsive.',
     long: 'AVPU is a fast way to describe a patient\'s level of consciousness in a single letter. Alert means awake, aware, and responding appropriately to you. Verbal means they are not spontaneously alert but do respond when spoken to. Pain means they respond only to a painful stimulus. Unresponsive means no response to anything. The scale is ordered by decreasing responsiveness, so a patient moving from A toward U is deteriorating — and a change in AVPU over time is often more informative than any single reading. Note that AVPU is not part of CERT Basic Training; it is included here as awareness-level reference, since it is standard shorthand among EMS and professional responders that CERT members are likely to hear on scene. CERT\'s own rapid assessment uses the simpler mental-status check inside START triage.',
     sources: [
@@ -252,7 +252,7 @@ const DIAGRAMS = [
     alt: 'Animated diagram of six colored cards appearing in sequence spelling SAMPLE — Signs/Symptoms, Allergies, Medications, Pertinent History, Last Oral Intake, and Events.',
     docBase: null,
     slide: null,
-    sectionLabel: 'Patient Assessment · Supplementary Reference',
+    sectionLabel: 'Medical Operations & Psychology',
     short: 'Six questions that capture a patient\'s medical background fast: Signs/Symptoms, Allergies, Medications, Pertinent history, Last oral intake, Events.',
     long: 'SAMPLE is a memory aid for gathering a patient\'s history quickly and completely. Signs and Symptoms covers what you can observe and what the patient reports feeling. Allergies matters before anyone assists with medication. Medications — what they take regularly — can both explain symptoms and complicate treatment. Pertinent history covers relevant past medical conditions. Last oral intake (when they last ate or drank) matters if surgery may follow. Events covers what led up to the incident, which often explains the injury pattern better than the injuries themselves do. Collected early and handed over verbatim, a SAMPLE history saves arriving EMS real time. Note that SAMPLE is not part of CERT Basic Training — it is included here as awareness-level reference for a term CERT members will hear professional responders use.',
     sources: [
@@ -268,7 +268,7 @@ const DIAGRAMS = [
     alt: 'Animated diagram of six colored cards appearing in sequence spelling OPQRST — Onset, Provocation/Palliation, Quality, Region/Radiation, Severity, and Time.',
     docBase: null,
     slide: null,
-    sectionLabel: 'Patient Assessment · Supplementary Reference',
+    sectionLabel: 'Medical Operations & Psychology',
     short: 'Six questions that turn "it hurts" into something useful: Onset, Provocation, Quality, Region, Severity, Time.',
     long: 'OPQRST structures the questions you ask about pain so the answers actually mean something. Onset asks when it started and what the patient was doing — sudden versus gradual onset points to very different problems. Provocation and palliation ask what makes it worse and what makes it better. Quality asks the patient to describe the sensation in their own words: sharp, dull, crushing, burning. Region and radiation locate the pain and track whether it spreads elsewhere, which can indicate a problem far from where it is felt. Severity is usually a 1-to-10 rating, most valuable when repeated over time to show whether things are improving. Time covers how long it has lasted and whether it is constant or comes and goes. Note that OPQRST is not part of CERT Basic Training; it is included here as awareness-level reference, and diagnosing the cause of pain is well outside CERT scope of practice.',
     sources: [
@@ -284,7 +284,7 @@ const DIAGRAMS = [
     alt: 'Animated diagram of three colored columns building in sequence — Eye Opening scored 4 to 1, Verbal Response scored 5 to 1, and Motor Response scored 6 to 1 — with each scoring level listed under its heading.',
     docBase: null,
     slide: null,
-    sectionLabel: 'Patient Assessment · Supplementary Reference',
+    sectionLabel: 'Medical Operations & Psychology',
     short: 'The clinical 3-to-15 consciousness score built from eye, verbal, and motor response — what the numbers professional responders call out actually mean.',
     long: 'The Glasgow Coma Scale scores consciousness across three separate responses and adds them together. Eye Opening runs 4 (spontaneous) down to 1 (none). Verbal Response runs 5 (oriented) down to 1 (none). Motor Response runs 6 (obeys commands) down to 1 (none). The total therefore ranges from 3, meaning completely unresponsive, to 15, meaning fully alert — and the three component scores are usually reported individually (as "E4 V5 M6") because the breakdown carries more information than the sum alone. GCS is a clinical assessment tool used by EMS and hospital staff; it is well beyond CERT scope of practice and is not taught in CERT Basic Training. It is included here purely so CERT members can understand what is being communicated when they hear a GCS score during a handoff. For CERT\'s own use, the far simpler AVPU scale or the mental-status check within START triage is the appropriate tool.',
     sources: [
@@ -300,7 +300,7 @@ const DIAGRAMS = [
     alt: 'Dark poster titled "Know Your Hazards" with six colored circular icon badges in a two-column grid, each labeled: Earthquake, Wildfire, Hurricane, Tornado, Volcano, and Winter Storm.',
     docBase: null,
     slide: null,
-    sectionLabel: 'Field Reference · Hazard-Specific Guides',
+    sectionLabel: 'Hazard-Specific Guides',
     short: 'Six hazard types every CERT member should recognize at a glance, drawn from FEMA\'s CERT Hazard-Specific Annex.',
     long: 'FEMA\'s CERT curriculum can be extended with a Hazard-Specific Annex covering natural and manmade hazards beyond what Basic Training\'s eight core sections have time to cover in depth. This poster summarizes six of the most common: earthquake, wildfire, hurricane, tornado, volcano, and winter storm. It\'s a quick-recognition aid, not a substitute for the full annex or for Ready.gov\'s per-hazard information sheets — see the Field Reference page for links to both.',
     sources: [
@@ -317,7 +317,7 @@ const DIAGRAMS = [
     alt: 'Dark poster split into two panels: a yellow panel with a storm cloud and binoculars icon labeled WATCH, reading "Conditions are possible. Stay alert and get ready."; and a red panel with a lightning-bolt hazard triangle labeled WARNING, reading "Take Action Now. Act immediately."',
     docBase: null,
     slide: null,
-    sectionLabel: 'Field Reference · Hazard-Specific Guides',
+    sectionLabel: 'Hazard-Specific Guides',
     short: 'The difference between a National Weather Service watch and a warning — one means get ready, the other means act now.',
     long: 'Two of the most commonly confused words in severe weather come from the National Weather Service, and mixing them up costs time when time matters. A Watch means the conditions for a hazard are possible in the area — the event has not started, and the right response is to stay alert, monitor updates, and get ready to act. A Warning means the hazard is already happening or is imminent in the area — the right response is to act immediately and take shelter or follow your plan. A useful way to remember it: a watch is the ingredients, a warning is the finished product. The same watch/warning distinction applies across tornado, severe thunderstorm, flood, winter storm, and other NWS alerts.',
     sources: [
@@ -334,7 +334,7 @@ const DIAGRAMS = [
     alt: 'Dark poster titled "Run. Hide. Fight." with three colored circular icon badges in a row: a running figure exiting through a door (Run), a locked shield (Hide), and a raised fist (Fight).',
     docBase: null,
     slide: null,
-    sectionLabel: 'Field Reference · Security & Active Threats',
+    sectionLabel: 'Security & Active Threats',
     short: 'The standard citizen response framework for an active shooter or targeted-violence situation — run, hide, or fight, in that order of preference.',
     long: 'Run. Hide. Fight. is the response framework promoted by DHS and CISA for civilians caught in an active shooter or targeted-violence incident: first try to run and get away if there\'s a viable escape route; if you can\'t safely leave, hide and stay out of sight; only fight, using whatever means available, as an absolute last resort when your life is in immediate danger. This complements CERT\'s Terrorism & CERT unit, which covers CERT\'s own scope and safety boundaries around intentional-hazard events.',
     sources: [
@@ -351,7 +351,7 @@ const DIAGRAMS = [
     alt: 'Dark poster titled "Hazmat Control Zones" with three stacked colored blocks connected by downward arrows: a red HOT ZONE block ("Contamination present. Trained responders only."), an orange WARM ZONE block ("Decontamination corridor."), and a green COLD ZONE block ("Command post and staging. Upwind and safe.").',
     docBase: null,
     slide: null,
-    sectionLabel: 'Field Reference · Worker & Rescuer Safety',
+    sectionLabel: 'Worker & Rescuer Safety',
     short: 'How a hazardous materials scene is divided into three control zones — and which one CERT belongs in.',
     long: 'Hazardous materials scenes are divided into three control zones so that contamination stays contained and responders know where it is safe to be. The Hot Zone is the contaminated area immediately around the release; only responders with the right training and protective equipment enter it, and that never includes CERT. The Warm Zone is the controlled corridor where people and equipment leaving the hot zone are decontaminated before going any further. The Cold Zone is the clean, uphill and upwind area where the command post, staging, and support functions are set up — this is where CERT members work. Recognizing the zones matters even if you never enter the inner two: it tells you where the boundary is, why you are being kept back, and where to report.',
     sources: [
@@ -368,7 +368,7 @@ const DIAGRAMS = [
     alt: 'Dark poster titled "Home Fire Escape Plan" with three colored circular icon badges in a row: two doors with arrows (Two Ways Out), a ringing bell (Test Your Alarms), and a group of people (Pick a Meeting Spot).',
     docBase: null,
     slide: null,
-    sectionLabel: 'Field Reference · Fire & Utility Safety',
+    sectionLabel: 'Fire & Utility Safety',
     short: 'Three household basics from the U.S. Fire Administration: know two ways out of every room, test your smoke alarms, and agree on a meeting spot outside.',
     long: 'The U.S. Fire Administration recommends every household build and practice a home fire escape plan: identify two ways out of every room in case one exit is blocked, test smoke alarms regularly so they\'re working when it matters, and agree on an outside meeting spot in advance so everyone can be accounted for quickly. This is the household-level companion to CERT\'s own fire safety training — a family that has practiced this plan is easier for a CERT member to help if a real fire happens.',
     sources: [
@@ -384,7 +384,7 @@ const DIAGRAMS = [
     alt: 'Dark poster titled "ICS & NIMS Training Pathway — Free FEMA Independent Study Courses" showing four numbered colored blocks connected by an upward arrow: 1 Introduction to ICS (IS-100), 2 Basic ICS for Initial Response (IS-200), 3 Introduction to NIMS (IS-700), and 4 National Response Framework (IS-800).',
     docBase: null,
     slide: null,
-    sectionLabel: 'Field Reference · Incident Command & Coordination',
+    sectionLabel: 'CERT Organization & Incident Command',
     short: 'The four free FEMA independent-study courses that build on CERT training, in the order most programs take them.',
     long: 'CERT Basic Training introduces the Incident Command System, but FEMA\'s Emergency Management Institute offers free self-paced courses that go deeper — and many CERT programs encourage or require them. IS-100 introduces ICS itself: its structure, terminology, and principles. IS-200 builds on that for people likely to supervise a single resource or small team during an initial response. IS-700 steps back to introduce the broader National Incident Management System that ICS sits inside. IS-800 covers the National Response Framework, showing how government, the private sector, nonprofits, and volunteers coordinate in a large-scale response. CERT members can also take IS-315, which focuses specifically on how CERT teams integrate into ICS. All are free and open to anyone — see the Field Reference page for direct links to each course.',
     sources: [
@@ -401,7 +401,7 @@ const DIAGRAMS = [
     alt: 'Dark poster titled "Build a Kit. Make a Plan. Stay Informed." with three colored circular icon badges in a row: a backpack (Build a Kit), a checklist (Make a Plan), and a radio tower (Stay Informed).',
     docBase: null,
     slide: null,
-    sectionLabel: 'Field Reference · Family & Community Preparedness',
+    sectionLabel: 'Family & Community Preparedness',
     short: 'The classic three-part framework — from Ready.gov and the American Red Cross — for household disaster preparedness.',
     long: 'Build a Kit, Make a Plan, Stay Informed is the standard three-part framework Ready.gov and the American Red Cross both use to organize household disaster preparedness: assemble an emergency supply kit with enough food, water, and essentials to be self-sufficient for several days; make a family communication and meeting plan before disaster strikes, not during it; and know where to get reliable information as a situation develops. It\'s the same foundation CERT training builds on at the neighborhood and team level.',
     sources: [
